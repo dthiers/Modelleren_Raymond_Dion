@@ -8,8 +8,12 @@ namespace RoyalGameOfUr.Model {
 
         private GameModel gModel;
 
-        public GameController(GameModel p_gModel) {
-            this.gModel = p_gModel;
+        public GameController() {
+            //this.gModel = p_gModel;
+        }
+
+        public string GetPlayerOnTurn() {
+            return "Bastion";
         }
     }
 }
