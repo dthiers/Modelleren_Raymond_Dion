@@ -9,6 +9,7 @@ namespace RoyalGameOfUr.View
     {   
         static void Main(string[] args)
         {
+            // Niks
             GameView gv = new GameView(null);
             gv.PrintGame();
             Console.Read();
