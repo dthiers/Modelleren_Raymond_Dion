@@ -31,14 +31,14 @@ namespace RoyalGameOfUr.Model
             }
         }
 
-        public void AddField()
+        public void SetTile(TileModel p_tile)
         {
-
-        }
-
-        public void SetTile(TileModel tile)
-        {
-            
+            if (HasTile) {
+                // tegel terugsturen naar startveld tegenstander en tile zetten
+            }
+            else {
+                this.tile = p_tile;
+            }
         }
 
         public void RemoveTile()

@@ -7,8 +7,9 @@ namespace RoyalGameOfUr.Model
 {
     class TileModel
     {
-        public string TileValue
-        {
+        public string TileValue {
+            get;
+            set;
         }
     }
 }
