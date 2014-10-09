@@ -32,8 +32,8 @@
     <AssociationLine Name="playerBlack" Type="RoyalGameOfUr.Model.PlayerModel" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="4.375" Y="2.18" />
-        <Point X="4.375" Y="3.208" />
-        <Point X="3" Y="3.208" />
+        <Point X="4.375" Y="3.27" />
+        <Point X="3" Y="3.27" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.16" Y="0.068" />
@@ -42,8 +42,8 @@
     <AssociationLine Name="playerWhite" Type="RoyalGameOfUr.Model.PlayerModel" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="4.688" Y="2.18" />
-        <Point X="4.688" Y="3.723" />
-        <Point X="3" Y="3.723" />
+        <Point X="4.688" Y="3.83" />
+        <Point X="3" Y="3.83" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.135" Y="-0.365" />
@@ -83,7 +83,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ABABAAAEAAAQAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABABAAAAAAAQAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\NormalField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -94,20 +94,14 @@
   <Class Name="RoyalGameOfUr.Model.PlayerModel">
     <Position X="1.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAIAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAIAgAA=</HashCode>
       <FileName>Model\PlayerModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RoyalGameOfUr.Model.StartField">
     <Position X="6.5" Y="2.75" Width="1.5" />
-    <AssociationLine Name="tiles" Type="RoyalGameOfUr.Model.TileModel" FixedFromPoint="true">
-      <Path>
-        <Point X="7.625" Y="4.819" />
-        <Point X="7.625" Y="5.25" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAAAQAAAAAAAAAAAAAgAIBAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAEAAAQAAAAAAAAAAAAAgAIBAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\StartField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

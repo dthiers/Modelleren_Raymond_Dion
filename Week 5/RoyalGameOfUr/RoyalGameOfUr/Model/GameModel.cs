@@ -15,6 +15,8 @@ namespace RoyalGameOfUr.Model
 
         public GameModel()
         {
+            playerBlack = new PlayerModel(this, startFieldBlack);
+            playerWhite = new PlayerModel(this, startFieldWhite);
             dices = new List<DiceModel>();
         }
 
