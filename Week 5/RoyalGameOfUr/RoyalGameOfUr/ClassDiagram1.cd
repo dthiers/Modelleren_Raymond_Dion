@@ -9,53 +9,25 @@
   </Class>
   <Class Name="RoyalGameOfUr.Model.GameModel">
     <Position X="4" Y="0.5" Width="2.5" />
-    <AssociationLine Name="startFieldBlack" Type="RoyalGameOfUr.Model.StartField" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.5" Y="2.633" />
-        <Point X="5.5" Y="4.852" />
-        <Point X="6.5" Y="4.852" />
-      </Path>
+    <AssociationLine Name="startFieldBlack" Type="RoyalGameOfUr.Model.StartField">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.11" Y="-0.257" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="startFieldWhite" Type="RoyalGameOfUr.Model.StartField" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="6" Y="2.632" />
-        <Point X="6" Y="3.878" />
-        <Point X="6.5" Y="3.878" />
-      </Path>
+    <AssociationLine Name="startFieldWhite" Type="RoyalGameOfUr.Model.StartField">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.018" Y="0.143" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="playerBlack" Type="RoyalGameOfUr.Model.PlayerModel" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="4.375" Y="2.632" />
-        <Point X="4.375" Y="3.27" />
-        <Point X="3" Y="3.27" />
-      </Path>
+    <AssociationLine Name="playerBlack" Type="RoyalGameOfUr.Model.PlayerModel">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.16" Y="0.068" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="playerWhite" Type="RoyalGameOfUr.Model.PlayerModel" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="4.688" Y="2.632" />
-        <Point X="4.688" Y="3.83" />
-        <Point X="3" Y="3.83" />
-      </Path>
+    <AssociationLine Name="playerWhite" Type="RoyalGameOfUr.Model.PlayerModel">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.135" Y="-0.365" />
       </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="dices" Type="RoyalGameOfUr.Model.DiceModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.125" Y="2.632" />
-        <Point X="5.125" Y="4.34" />
-        <Point X="3.813" Y="4.34" />
-        <Point X="3.813" Y="4.75" />
-      </Path>
     </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAACAEAAQAAABCAAIAAAgAAACAAAAAgAAAAAAAAA=</HashCode>
@@ -130,6 +102,13 @@
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAQAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\FieldModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoyalGameOfUr.Model.SplitField">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Model\SplitField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

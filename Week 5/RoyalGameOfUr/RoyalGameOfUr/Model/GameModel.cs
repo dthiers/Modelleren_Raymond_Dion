@@ -48,5 +48,13 @@ namespace RoyalGameOfUr.Model
             }
             return thrown;
         }
+
+        public StartField GetStartfieldBlack() {
+            return this.startFieldBlack;
+        }
+
+        public StartField GetStartfieldWhite() {
+            return this.startFieldWhite;
+        }
     }
 }

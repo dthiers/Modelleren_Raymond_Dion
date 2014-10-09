@@ -8,7 +8,7 @@ namespace RoyalGameOfUr.Model
     class NormalField : FieldModel
     {
         private TileModel tile;
-        private NormalField next;
+        protected NormalField next;
 
         public bool HasTile
         {
