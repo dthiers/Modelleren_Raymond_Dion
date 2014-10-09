@@ -7,37 +7,20 @@ namespace RoyalGameOfUr.Model
 {
     class GameModel
     {
-        internal StartField StartFieldBlack
+        private StartField startFieldBlack;
+        private StartField startFieldWhite;
+        private PlayerModel playerBlack;
+        private PlayerModel playerWhite;
+
+        public GameModel()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            throw new System.NotImplementedException();
         }
 
-        internal NormalField NormalField
+        public void StartGame()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            throw new System.NotImplementedException();
         }
 
-        internal StartField StartFieldWhite
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
     }
 }

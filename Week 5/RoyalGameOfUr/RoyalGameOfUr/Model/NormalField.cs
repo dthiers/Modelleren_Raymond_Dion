@@ -20,6 +20,22 @@ namespace RoyalGameOfUr.Model
             set;
         }
 
+        internal NormalField NormalField1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public void AddField(NormalField field)
+        {
+
+        }
+
         public void SetTile(TileModel tile)
         {
             

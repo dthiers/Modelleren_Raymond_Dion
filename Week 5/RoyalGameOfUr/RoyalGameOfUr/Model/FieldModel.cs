@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RoyalGameOfUr.Model
 {
-    public interface FieldModel
+    public abstract class FieldModel
     {
         public Boolean HasTile
         {

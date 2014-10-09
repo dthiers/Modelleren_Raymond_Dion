@@ -13,9 +13,6 @@ namespace RoyalGameOfUr.Model
         {
             tiles = new List<TileModel>();
         }
-
-
-
         public bool HasTile
         {
             get
@@ -25,6 +22,17 @@ namespace RoyalGameOfUr.Model
             set
             {
                 throw new NotImplementedException();
+            }
+        }
+
+        internal NormalField NormalField
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
             }
         }
 
