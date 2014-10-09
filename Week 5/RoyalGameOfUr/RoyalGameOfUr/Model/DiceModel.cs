@@ -7,22 +7,24 @@ namespace RoyalGameOfUr.Model
 {
     class DiceModel
     {
-        private int generator;
+        private Random generator;
 
+        public DiceModel()
+        {
+            generator = new Random();
+        }
         public int ThrownValue
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public void ThrowDice()
         {
-            throw new System.NotImplementedException();
+            if (generator.Next(0,2) == 1)
+            {
+                ThrownValue = 1;
+            }
         }
     }
 }
