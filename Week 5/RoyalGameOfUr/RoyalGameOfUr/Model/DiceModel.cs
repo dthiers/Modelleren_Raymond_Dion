@@ -31,6 +31,7 @@ namespace RoyalGameOfUr.Model
         {
             Console.WriteLine("test");
             Console.Read();
+            Console.Read();
         }
     }
 }
