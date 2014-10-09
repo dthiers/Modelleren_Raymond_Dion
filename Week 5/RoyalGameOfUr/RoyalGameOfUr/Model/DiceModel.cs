@@ -10,6 +10,7 @@ namespace RoyalGameOfUr.Model
         private int generator;
         //private int test;
 
+        // iets anders dan jij..
         public int ThrownValue
         {
             get
