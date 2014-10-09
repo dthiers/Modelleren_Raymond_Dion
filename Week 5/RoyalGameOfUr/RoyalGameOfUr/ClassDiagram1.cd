@@ -11,9 +11,9 @@
     <Position X="4" Y="0.5" Width="2.5" />
     <AssociationLine Name="startFieldBlack" Type="RoyalGameOfUr.Model.StartField" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="5.5" Y="2.181" />
-        <Point X="5.5" Y="4.195" />
-        <Point X="6.5" Y="4.195" />
+        <Point X="5.5" Y="2.633" />
+        <Point X="5.5" Y="4.852" />
+        <Point X="6.5" Y="4.852" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.11" Y="-0.257" />
@@ -21,9 +21,9 @@
     </AssociationLine>
     <AssociationLine Name="startFieldWhite" Type="RoyalGameOfUr.Model.StartField" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="6" Y="2.18" />
-        <Point X="6" Y="3.525" />
-        <Point X="6.5" Y="3.525" />
+        <Point X="6" Y="2.632" />
+        <Point X="6" Y="3.878" />
+        <Point X="6.5" Y="3.878" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.018" Y="0.143" />
@@ -31,7 +31,7 @@
     </AssociationLine>
     <AssociationLine Name="playerBlack" Type="RoyalGameOfUr.Model.PlayerModel" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="4.375" Y="2.18" />
+        <Point X="4.375" Y="2.632" />
         <Point X="4.375" Y="3.27" />
         <Point X="3" Y="3.27" />
       </Path>
@@ -41,7 +41,7 @@
     </AssociationLine>
     <AssociationLine Name="playerWhite" Type="RoyalGameOfUr.Model.PlayerModel" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="4.688" Y="2.18" />
+        <Point X="4.688" Y="2.632" />
         <Point X="4.688" Y="3.83" />
         <Point X="3" Y="3.83" />
       </Path>
@@ -51,14 +51,14 @@
     </AssociationLine>
     <AssociationLine Name="dices" Type="RoyalGameOfUr.Model.DiceModel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="5.125" Y="2.18" />
+        <Point X="5.125" Y="2.632" />
         <Point X="5.125" Y="4.34" />
         <Point X="3.813" Y="4.34" />
         <Point X="3.813" Y="4.75" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAACAEAAQAAAACAAIAAAgAAACAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAEAAQAAABCAAIAAAgAAACAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Model\GameModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -73,22 +73,22 @@
   </Class>
   <Class Name="RoyalGameOfUr.Model.NormalField">
     <Position X="9" Y="2.75" Width="1.5" />
-    <AssociationLine Name="NormalField1" Type="RoyalGameOfUr.Model.NormalField" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="next" Type="RoyalGameOfUr.Model.NormalField" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="10.25" Y="2.75" />
-        <Point X="10.25" Y="2.375" />
+        <Point X="10.125" Y="2.75" />
+        <Point X="10.125" Y="2.375" />
         <Point X="10.875" Y="2.375" />
-        <Point X="10.875" Y="4.01" />
-        <Point X="10.5" Y="4.01" />
+        <Point X="10.875" Y="4" />
+        <Point X="10.5" Y="4" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ABABAAAAAAAQAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABABAAAAAAAQAAAAAAAAAAAAAAAoAAIAAAAAAAIAAAA=</HashCode>
       <FileName>Model\NormalField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="tile" />
-      <Property Name="NormalField1" />
+      <Field Name="next" />
     </ShowAsAssociation>
   </Class>
   <Class Name="RoyalGameOfUr.Model.PlayerModel">
@@ -101,7 +101,7 @@
   <Class Name="RoyalGameOfUr.Model.StartField">
     <Position X="6.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAEAAAQAAAAAAAAAAAAAgAIBAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAAAAIAAAAQAAABAAIAAAAAAgAIBAAAAAAAAgAAgAA=</HashCode>
       <FileName>Model\StartField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -112,7 +112,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="RoyalGameOfUr.Model.TileModel">
-    <Position X="7.5" Y="5.25" Width="1.5" />
+    <Position X="7.5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\TileModel.cs</FileName>

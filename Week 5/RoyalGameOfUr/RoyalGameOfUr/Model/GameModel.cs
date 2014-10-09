@@ -12,9 +12,13 @@ namespace RoyalGameOfUr.Model
         private PlayerModel playerBlack;
         private PlayerModel playerWhite;
         private List<DiceModel> dices;
+        private NormalField firstSharedField;
 
         public GameModel()
         {
+            firstSharedField = new NormalField();
+            startFieldBlack = new StartField(firstSharedField);
+            startFieldWhite = new StartField(firstSharedField);
             playerBlack = new PlayerModel(this, startFieldBlack);
             playerWhite = new PlayerModel(this, startFieldWhite);
             dices = new List<DiceModel>();
