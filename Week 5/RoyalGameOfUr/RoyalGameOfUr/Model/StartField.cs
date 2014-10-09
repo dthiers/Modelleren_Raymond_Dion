@@ -75,6 +75,7 @@ namespace RoyalGameOfUr.Model
         {
             previous.SetNext(firstSharedField);
             previous = firstSharedField;
+            SplitField split = new SplitField();
 
             for (int i = 0; i < 6; i++)
             {
@@ -82,6 +83,9 @@ namespace RoyalGameOfUr.Model
                 previous.SetNext(next);
                 previous = next;
             }
+
+            previous.SetNext(split);
+            previous = split;
 
         }
     }
