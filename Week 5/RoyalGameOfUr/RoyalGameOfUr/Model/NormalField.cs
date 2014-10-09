@@ -31,7 +31,7 @@ namespace RoyalGameOfUr.Model
             }
         }
 
-        public void AddField(NormalField field)
+        public void AddField()
         {
 
         }

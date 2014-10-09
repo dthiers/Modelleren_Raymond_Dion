@@ -14,7 +14,7 @@ namespace RoyalGameOfUr.Model
 
         public GameModel()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public void StartGame()

@@ -38,12 +38,17 @@ namespace RoyalGameOfUr.Model
 
         public void SetTile(TileModel tile)
         {
-            throw new NotImplementedException();
+            tiles.Add(tile);
         }
 
         public void RemoveTile()
         {
             throw new NotImplementedException();
+        }
+
+        public void AddField()
+        {
+
         }
     }
 }
