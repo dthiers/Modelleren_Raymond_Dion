@@ -7,37 +7,54 @@ namespace RoyalGameOfUr.Model
 {
     class GameModel
     {
-        internal StartField StartFieldBlack
+        private StartField startFieldBlack;
+        private StartField startFieldWhite;
+        private PlayerModel playerBlack;
+        private PlayerModel playerWhite;
+        private List<DiceModel> dices;
+        private NormalField firstSharedField;
+
+        public GameModel()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            firstSharedField = new NormalField();
+            startFieldBlack = new StartField(firstSharedField);
+            startFieldWhite = new StartField(firstSharedField);
+            playerBlack = new PlayerModel(this, startFieldBlack);
+            playerWhite = new PlayerModel(this, startFieldWhite);
+            dices = new List<DiceModel>();
         }
 
-        internal NormalField NormalField
+        public void StartGame()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            throw new System.NotImplementedException();
         }
 
-        internal StartField StartFieldWhite
+        public void CreateDices()
         {
-            get
+            for (int i = 0; i < 4; i++)
             {
-                throw new System.NotImplementedException();
-            }
-            set
+                dices.Add(new DiceModel());
+            }        
+        }
+
+        public int ThrowDices()
+        {
+            int thrown = 0;
+
+            foreach (DiceModel d in dices)
             {
+                d.ThrowDice();
+                thrown = thrown + d.ThrownValue;
             }
+            return thrown;
+        }
+
+        public StartField GetStartfieldBlack() {
+            return this.startFieldBlack;
+        }
+
+        public StartField GetStartfieldWhite() {
+            return this.startFieldWhite;
         }
     }
 }

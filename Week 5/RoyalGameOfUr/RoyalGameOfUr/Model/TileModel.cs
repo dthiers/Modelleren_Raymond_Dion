@@ -5,10 +5,11 @@ using System.Text;
 
 namespace RoyalGameOfUr.Model
 {
-    class TileModel
+    public class TileModel
     {
-        public string TileValue
-        {
+        public string TileValue {
+            get;
+            set;
         }
     }
 }

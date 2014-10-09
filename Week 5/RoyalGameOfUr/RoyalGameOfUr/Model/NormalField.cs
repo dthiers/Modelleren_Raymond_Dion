@@ -8,11 +8,7 @@ namespace RoyalGameOfUr.Model
     class NormalField : FieldModel
     {
         private TileModel tile;
-
-        public NormalField()
-        {
-
-        }
+        protected NormalField next;
 
         public bool HasTile
         {
@@ -20,11 +16,25 @@ namespace RoyalGameOfUr.Model
             set;
         }
 
-        public void SetTile(TileModel tile)
+        public void SetNext(NormalField next)
         {
-            
+            this.next = next;
         }
 
+        public void SetTile(TileModel p_tile)
+        {
+            if (HasTile) {
+                // tegel terugsturen naar startveld tegenstander en tile zetten
+            }
+            else {
+                this.tile = p_tile;
+            }
+        }
+
+        public NormalField GetNext()
+        {
+            return next;
+        }
         public void RemoveTile()
         {
            

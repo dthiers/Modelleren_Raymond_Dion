@@ -7,17 +7,18 @@ namespace RoyalGameOfUr.Model
 {
     class PlayerModel
     {
-        private DiceModel dice;
-
-        public PlayerModel()
+        private GameModel gameModel;
+        private StartField startField;
+        public int ThrownValue { get; set; }
+        public PlayerModel(GameModel gameModel, StartField startField)
         {
-            dice = new DiceModel();
+            this.gameModel = gameModel;
+            this.startField = startField;
         }
 
         public void ThrowDice()
         {
-            throw new System.NotImplementedException();
+            ThrownValue = gameModel.ThrowDices();
         }
-
     }
 }

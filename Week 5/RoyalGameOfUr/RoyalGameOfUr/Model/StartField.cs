@@ -8,14 +8,16 @@ namespace RoyalGameOfUr.Model
     class StartField : FieldModel
     {
         List<TileModel> tiles;
-
-        public StartField()
+        private NormalField firstLink;
+        private NormalField firstSharedField;
+        private NormalField previous;
+        public StartField(NormalField firstSharedField)
         {
+            this.firstSharedField = firstSharedField;
             tiles = new List<TileModel>();
+            firstLink = new NormalField();
+            previous = null;
         }
-
-
-
         public bool HasTile
         {
             get
@@ -28,14 +30,63 @@ namespace RoyalGameOfUr.Model
             }
         }
 
+        internal NormalField NormalField
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         public void SetTile(TileModel tile)
         {
-            throw new NotImplementedException();
+            tiles.Add(tile);
         }
 
         public void RemoveTile()
         {
             throw new NotImplementedException();
+        }
+
+        private void PlayerFirstFields()
+        {
+           
+
+            for (int i = 0; i < 4; i++)
+            {
+                NormalField next = new NormalField();
+                if (i == 0)
+                {
+                    firstLink.SetNext(next);
+                    previous = next;
+                }
+                else
+                {
+                    previous.SetNext(next);
+                    previous = next;
+                }
+            }
+        }
+
+        private void ConstructNormalField()
+        {
+            previous.SetNext(firstSharedField);
+            previous = firstSharedField;
+            SplitField split = new SplitField();
+
+            for (int i = 0; i < 6; i++)
+            {
+                NormalField next = new NormalField();
+                previous.SetNext(next);
+                previous = next;
+            }
+
+            previous.SetNext(split);
+            previous = split;
+
         }
     }
 }
