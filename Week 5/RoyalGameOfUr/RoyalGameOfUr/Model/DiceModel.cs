@@ -8,9 +8,7 @@ namespace RoyalGameOfUr.Model
     class DiceModel
     {
         private int generator;
-        //private int test;
 
-        // test raymond
         public int ThrownValue
         {
             get
@@ -25,13 +23,6 @@ namespace RoyalGameOfUr.Model
         public void ThrowDice()
         {
             throw new System.NotImplementedException();
-        }
-
-        public void test()
-        {
-            Console.WriteLine("test");
-            Console.Read();
-            Console.Read();
         }
     }
 }

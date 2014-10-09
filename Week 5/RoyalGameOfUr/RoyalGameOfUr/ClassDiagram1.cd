@@ -3,7 +3,7 @@
   <Class Name="RoyalGameOfUr.Model.DiceModel">
     <Position X="2.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAAAAAAgAAAAAAAAAAAAAAAAIAAAQAAAAAAA=</HashCode>
+      <HashCode>AAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Model\DiceModel.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -26,7 +26,7 @@
         <Point X="6.5" Y="3.439" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.007" Y="-0.157" />
+        <Position X="0.018" Y="0.143" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="playerBlack" Type="RoyalGameOfUr.Model.PlayerModel" FixedFromPoint="true" FixedToPoint="true">
