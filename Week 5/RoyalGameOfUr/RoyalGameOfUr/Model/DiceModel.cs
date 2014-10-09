@@ -8,6 +8,7 @@ namespace RoyalGameOfUr.Model
     class DiceModel
     {
         private int generator;
+        private int test;
 
         public int ThrownValue
         {
