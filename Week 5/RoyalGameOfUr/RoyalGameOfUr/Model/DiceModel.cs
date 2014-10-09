@@ -26,5 +26,11 @@ namespace RoyalGameOfUr.Model
         {
             throw new System.NotImplementedException();
         }
+
+        public void test()
+        {
+            Console.WriteLine("test");
+            Console.Read();
+        }
     }
 }
