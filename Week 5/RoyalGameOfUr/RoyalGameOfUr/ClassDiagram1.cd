@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="RoyalGameOfUr.Model.DiceModel">
-    <Position X="1.5" Y="2" Width="1.5" />
+    <Position X="1.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Model\DiceModel.cs</FileName>
@@ -64,7 +64,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="RoyalGameOfUr.Model.PlayerModel">
-    <Position X="3.5" Y="4.5" Width="1.5" />
+    <Position X="3.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAAAAIAAAAAgAEACAAgAAQAAIAgAA=</HashCode>
       <FileName>Model\PlayerModel.cs</FileName>
@@ -84,14 +84,14 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="RoyalGameOfUr.Model.TileModel">
-    <Position X="9" Y="7" Width="1.5" />
+    <Position X="6.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\TileModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RoyalGameOfUr.Program">
-    <Position X="1.5" Y="0.5" Width="1.5" />
+    <Position X="1.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
@@ -105,7 +105,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="RoyalGameOfUr.Model.SplitField">
-    <Position X="11.5" Y="3.75" Width="1.5" />
+    <Position X="9" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Model\SplitField.cs</FileName>
