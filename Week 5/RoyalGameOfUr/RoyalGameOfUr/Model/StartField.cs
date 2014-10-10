@@ -30,17 +30,6 @@ namespace RoyalGameOfUr.Model
             }
         }
 
-        internal NormalField NormalField
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
         public void SetTile(TileModel tile)
         {
             tiles.Add(tile);
@@ -53,8 +42,6 @@ namespace RoyalGameOfUr.Model
 
         private void PlayerFirstFields()
         {
-           
-
             for (int i = 0; i < 4; i++)
             {
                 NormalField next = new NormalField();
@@ -73,6 +60,7 @@ namespace RoyalGameOfUr.Model
 
         private void ConstructNormalField()
         {
+         
             previous.SetNext(firstSharedField);
             previous = firstSharedField;
             SplitField split = new SplitField();
@@ -85,8 +73,31 @@ namespace RoyalGameOfUr.Model
             }
 
             previous.SetNext(split);
-            previous = split;
 
+            for (int i = 0; i < 2; i++)
+            {
+                 NormalField next = new NormalField();
+                 split.SetNext(next);
+                 previous = next;
+            }  
+
+            for (int i = 0; i < 2; i++)
+            {
+                NormalField next = new NormalField();
+                split.SetNextBlack(next);
+                previous = next;
+            }
+        }
+
+        private void CreateBoard()
+        {
+            PlayerFirstFields();
+            ConstructNormalField();
+        }
+
+        public NormalField GetNext()
+        {
+            return firstLink;
         }
     }
 }

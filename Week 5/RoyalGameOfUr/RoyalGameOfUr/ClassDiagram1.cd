@@ -8,20 +8,20 @@
     </TypeIdentifier>
   </Class>
   <Class Name="RoyalGameOfUr.Model.GameModel">
-    <Position X="4" Y="0.5" Width="2.5" />
+    <Position X="3.75" Y="0.5" Width="2.5" />
     <AssociationLine Name="startFieldBlack" Type="RoyalGameOfUr.Model.StartField">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.11" Y="-0.257" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="startFieldWhite" Type="RoyalGameOfUr.Model.StartField">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.018" Y="0.143" />
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.093" Y="-0.299" Height="0.182" Width="1.07" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="playerBlack" Type="RoyalGameOfUr.Model.PlayerModel">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.16" Y="0.068" />
+        <Position X="0.185" Y="0.326" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="playerWhite" Type="RoyalGameOfUr.Model.PlayerModel">
@@ -50,12 +50,12 @@
         <Point X="10.125" Y="2.75" />
         <Point X="10.125" Y="2.375" />
         <Point X="10.875" Y="2.375" />
-        <Point X="10.875" Y="4" />
-        <Point X="10.5" Y="4" />
+        <Point X="10.875" Y="4.106" />
+        <Point X="10.5" Y="4.106" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ABABAAAAAAAQAAAAAAAAAAAAAAAoAAIAAAAAAAIAAAA=</HashCode>
+      <HashCode>ARABAAAAAAAQAAAAAAAAAAAAAAAoAAIAAAAAAAIAAAA=</HashCode>
       <FileName>Model\NormalField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -64,7 +64,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="RoyalGameOfUr.Model.PlayerModel">
-    <Position X="1.5" Y="2.5" Width="1.5" />
+    <Position X="1" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAIAgAA=</HashCode>
       <FileName>Model\PlayerModel.cs</FileName>
@@ -73,18 +73,18 @@
   <Class Name="RoyalGameOfUr.Model.StartField">
     <Position X="6.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAIAAAAQAAABAAIAAAAAAgAIBAAAAAAAAgAAgAA=</HashCode>
+      <HashCode>ABAAAAIAAAAQAAABAAIAAAAAAgAIAAAAAgAAAgAAgAA=</HashCode>
       <FileName>Model\StartField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="NormalField" />
+      <Field Name="firstLink" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Field Name="tiles" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="RoyalGameOfUr.Model.TileModel">
-    <Position X="7.5" Y="6" Width="1.5" />
+    <Position X="7.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\TileModel.cs</FileName>

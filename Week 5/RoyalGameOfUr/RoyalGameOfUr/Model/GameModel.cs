@@ -19,14 +19,17 @@ namespace RoyalGameOfUr.Model
             firstSharedField = new NormalField();
             startFieldBlack = new StartField(firstSharedField);
             startFieldWhite = new StartField(firstSharedField);
-            playerBlack = new PlayerModel(this, startFieldBlack);
-            playerWhite = new PlayerModel(this, startFieldWhite);
+            playerBlack = new PlayerModel(this, startFieldBlack, "Blacks");
+            playerWhite = new PlayerModel(this, startFieldWhite, " Whites");
             dices = new List<DiceModel>();
+
+            CreateDices();
         }
 
         public void StartGame()
         {
-            throw new System.NotImplementedException();
+            playerBlack.ThrowDice();
+            playerBlack.MoveStartTile(playerBlack.GetTiles().ElementAt(3));
         }
 
         public void CreateDices()
@@ -44,7 +47,10 @@ namespace RoyalGameOfUr.Model
             foreach (DiceModel d in dices)
             {
                 d.ThrowDice();
-                thrown = thrown + d.ThrownValue;
+                if (d.ThrownValue == 1)
+                {
+                    thrown++;
+                }
             }
             return thrown;
         }

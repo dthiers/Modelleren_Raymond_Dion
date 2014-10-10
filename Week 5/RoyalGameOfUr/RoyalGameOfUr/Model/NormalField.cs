@@ -39,5 +39,10 @@ namespace RoyalGameOfUr.Model
         {
            
         }
+
+        public TileModel GetTile()
+        {
+            return tile;
+        }
     }
 }
