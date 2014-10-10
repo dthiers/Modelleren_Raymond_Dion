@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="RoyalGameOfUr.Model.DiceModel">
-    <Position X="3.25" Y="4.75" Width="1.5" />
+    <Position X="1" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Model\DiceModel.cs</FileName>
@@ -21,12 +21,12 @@
     </AssociationLine>
     <AssociationLine Name="playerBlack" Type="RoyalGameOfUr.Model.PlayerModel">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.16" Y="0.068" />
+        <Position X="0.068" Y="0.16" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="playerWhite" Type="RoyalGameOfUr.Model.PlayerModel">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.135" Y="-0.365" />
+        <Position X="-0.365" Y="0.135" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -64,11 +64,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="RoyalGameOfUr.Model.PlayerModel">
-    <Position X="1.5" Y="2.5" Width="1.5" />
+    <Position X="3" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAIAgAA=</HashCode>
       <FileName>Model\PlayerModel.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="startField" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="RoyalGameOfUr.Model.StartField">
     <Position X="6.5" Y="2.75" Width="1.5" />
