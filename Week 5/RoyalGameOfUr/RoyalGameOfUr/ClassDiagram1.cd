@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="RoyalGameOfUr.Model.DiceModel">
-    <Position X="1" Y="2.25" Width="1.5" />
+    <Position X="1.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Model\DiceModel.cs</FileName>
@@ -50,12 +50,12 @@
         <Point X="10.125" Y="2.75" />
         <Point X="10.125" Y="2.375" />
         <Point X="10.875" Y="2.375" />
-        <Point X="10.875" Y="4" />
-        <Point X="10.5" Y="4" />
+        <Point X="10.875" Y="4.106" />
+        <Point X="10.5" Y="4.106" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ABABAAAAAAAQAAAAAAAAAAAAAAAoAAIAAAAAAAIAAAA=</HashCode>
+      <HashCode>ARABAAAAAAAQAAAAAAAAAAAAAAAoAAIAAAAAAAIAAAA=</HashCode>
       <FileName>Model\NormalField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -64,9 +64,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="RoyalGameOfUr.Model.PlayerModel">
-    <Position X="3" Y="3.75" Width="1.5" />
+    <Position X="3.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAIAgAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAIAAAAAgAEACAAgAAQAAIAgAA=</HashCode>
       <FileName>Model\PlayerModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -76,12 +76,9 @@
   <Class Name="RoyalGameOfUr.Model.StartField">
     <Position X="6.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAIAAAAQAAABAAIAAAAAAgAIBAAAAAAAAgAAgAA=</HashCode>
+      <HashCode>ABAAAAIAAAAQAAABAAIAAAAAAgAIAAIAAgAAAgAAgAA=</HashCode>
       <FileName>Model\StartField.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="NormalField" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Field Name="tiles" />
     </ShowAsCollectionAssociation>
