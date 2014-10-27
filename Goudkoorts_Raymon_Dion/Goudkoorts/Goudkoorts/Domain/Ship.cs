@@ -13,6 +13,7 @@ namespace Goudkoorts.Domain {
         public int ShipID { get; set; }
         public Boolean IsFull { get; set; }
         public Boolean IsEmpty { get; set; }
+        public Boolean IsDocked { get; set; }
         public int Cargo { get; set; }
     }
 }

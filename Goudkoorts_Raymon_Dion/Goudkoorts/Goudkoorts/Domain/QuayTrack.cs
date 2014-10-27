@@ -9,7 +9,7 @@ namespace Goudkoorts.Domain {
         private Harbor harbor;
 
         public int DockedShipID { get; set; }
-        public BoatTrack NextBoatTrack { get; set; }
+        public BoatTrack CurrentBoatTrack { get; set; }
         public QuayTrack(Harbor p_harbor) {
             harbor = p_harbor;
             harbor.SetQuayTrack(this);
