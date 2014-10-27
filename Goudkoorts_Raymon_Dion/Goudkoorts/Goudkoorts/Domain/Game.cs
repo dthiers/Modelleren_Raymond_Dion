@@ -150,6 +150,11 @@ namespace Goudkoorts.Domain {
             current.Next = southQuay;
             current = southQuay;
 
+            for (int h = 0; h < 9; h++)
+            {
+                current.Next = new RegularTrack();
+                current = current.Next;
+            }
         }
     }
 }
