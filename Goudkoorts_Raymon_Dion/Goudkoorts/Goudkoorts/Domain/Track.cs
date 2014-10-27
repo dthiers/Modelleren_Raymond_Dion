@@ -7,6 +7,7 @@ namespace Goudkoorts.Domain {
     public abstract class Track {
         public Cart Cart { get; set; }
         public Track Next { get; set; }
+        public Track Previous { get; set; }
         public Track NextTop { get; set; }
         public Track NextBottom { get; set; }
         public Track PreviousTop { get; set; }
