@@ -8,19 +8,8 @@ namespace Goudkoorts.Domain {
 
         private Track firstTrack;   // In de constructor aanmaken 
 
-        public override Cart Cart { get; set; }
-        public override Track Next { get; set; }
-
         public StartTrack() {
 
-        }
-
-        public override bool HasNext() {
-            throw new NotImplementedException();
-        }
-
-        public override bool HasCart() {
-            throw new NotImplementedException();
         }
 
         public override void RemoveCartFromTrack() {
@@ -31,8 +20,12 @@ namespace Goudkoorts.Domain {
             throw new NotImplementedException();
         }
 
-        private void InitTrack() {
-
+        // ik denk dat dit goed is?
+        public void SpawnCart()
+        {
+            Cart = new Cart();
+            PlaceCartOnTrack(Cart);
+            HasCart = true;
         }
     }
 }

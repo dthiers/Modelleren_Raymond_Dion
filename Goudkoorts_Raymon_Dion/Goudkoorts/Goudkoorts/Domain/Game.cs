@@ -156,5 +156,26 @@ namespace Goudkoorts.Domain {
                 current = current.Next;
             }
         }
+
+        // spawn random cart
+        public void SpawnRandomCart()
+        {
+            // een random int generator, A = 1, B = 2 , C = 3
+            Random random = new Random();
+            int generator = random.Next(1, 3);
+
+            if (generator == 1)
+            {
+                startTrackA.SpawnCart();
+            }
+            else if (generator == 2)
+            {
+                startTrackB.SpawnCart();
+            }
+            else
+            {
+                startTrackC.SpawnCart();
+            }
+        }
     }
 }
