@@ -41,6 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\BoatTrack.cs" />
+    <Compile Include="Domain\Cart.cs" />
+    <Compile Include="Domain\Game.cs" />
+    <Compile Include="Domain\Harbor.cs" />
+    <Compile Include="Domain\QuayTrack.cs" />
+    <Compile Include="Domain\RegularTrack.cs" />
+    <Compile Include="Domain\Ship.cs" />
+    <Compile Include="Domain\SwitchTrackIncoming.cs" />
+    <Compile Include="Domain\SwitchTrackOutgoing.cs" />
+    <Compile Include="Domain\Track.cs" />
+    <Compile Include="Domain\StartTrack.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -50,7 +61,7 @@
     <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Diagrams\AKD_Goudkoorts.cd" />
+    <None Include="Diagrams\DKD_Goudkoorts.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

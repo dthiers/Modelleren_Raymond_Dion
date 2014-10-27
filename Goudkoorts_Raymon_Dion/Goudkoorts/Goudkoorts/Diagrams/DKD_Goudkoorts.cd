@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Goudkoorts.Domain.BoatTrack">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <AssociationLine Name="NextBoatTrack" Type="Goudkoorts.Domain.BoatTrack" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.938" Y="0.5" />
+        <Point X="7.938" Y="0.125" />
+        <Point X="8.625" Y="0.125" />
+        <Point X="8.625" Y="0.875" />
+        <Point X="8.25" Y="0.875" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\BoatTrack.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="NextBoatTrack" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Domain.Cart">
+    <Position X="12" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Cart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Domain.Game">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAQAAAAAAAIAAAAAAAAAAAAAAAAAAACAAAYBk=</HashCode>
+      <FileName>Domain\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Domain.Harbor">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACCAAAAEgAEAACAABQAAAAQAIAAAACBAAAAAA=</HashCode>
+      <FileName>Domain\Harbor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="firstTrack" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="Ships" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Domain.QuayTrack">
+    <Position X="6.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAAAECAAAAAAAEAAAAAgAAACAAQAEAEAAAAAAAEQAA=</HashCode>
+      <FileName>Domain\QuayTrack.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="harbor" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Domain.Ship">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Ship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Domain.StartTrack">
+    <Position X="11" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAEAAAAAAAAAAAAAAAAAACAAQAAAAAAAADAAEQAA=</HashCode>
+      <FileName>Domain\StartTrack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Domain.SwitchTrackIncoming">
+    <Position X="13.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAEAAAAAAAAAAAAAAAAAACAAQAAAAAAAAAAAEQAA=</HashCode>
+      <FileName>Domain\SwitchTrackIncoming.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Domain.SwitchTrackOutgoing">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAEAAAAAAAAAAAAAAAAAACAAQAAAAAAAAAAAEQAA=</HashCode>
+      <FileName>Domain\SwitchTrackOutgoing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Domain.Track">
+    <Position X="9.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAEAAAAAAAAAAAAAAAAAACAAQAAAAAAAAAAAEQAA=</HashCode>
+      <FileName>Domain\Track.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Cart" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Program" Collapsed="true">
+    <Position X="15.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
