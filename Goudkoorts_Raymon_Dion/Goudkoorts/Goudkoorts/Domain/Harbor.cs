@@ -19,17 +19,15 @@ namespace Goudkoorts.Domain {
         }
 
         public Ship GetShipByID(int p_id) {
-
+            return new Ship(2);
         }
 
         public Boolean HasEmptyShip() {
-            
+            return true;
         }
 
         public Ship SendEmptyShipToQuayTrack() {
-            while (!ShipHasArrivedAtQuayTrack) {
-                MoveShip();
-            }
+            return new Ship(1);
         }
 
         public void MoveShip() {
