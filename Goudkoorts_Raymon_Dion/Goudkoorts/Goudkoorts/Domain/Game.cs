@@ -158,7 +158,7 @@ namespace Goudkoorts.Domain {
         }
 
         // spawn random cart
-        public void SpawnRandomCart()
+        public void SpawnRandomCart()   // moet private worden!
         {
             // een random int generator, A = 1, B = 2 , C = 3
             Random random = new Random();
@@ -175,6 +175,102 @@ namespace Goudkoorts.Domain {
             else
             {
                 startTrackC.SpawnCart();
+            }
+        }
+
+        // als je van onder komt, kijk of de track verbonden is
+        public bool CanSwitchInFromBottom(SwitchTrackIncoming p_Track)     // moet private worden!
+        {
+            if (p_Track.BottomAvaiable)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool CanSwitchInFromTop(SwitchTrackIncoming p_Track)     // moet private worden!
+        {
+            if (p_Track.TopAvaiable)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool CanSwitchOutFromBottom(SwitchTrackOutgoing p_Track)     // moet private worden!
+        {
+            if (p_Track.BottomAvaiable)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool CanSwitchOutFromTop(SwitchTrackOutgoing p_Track)     // moet private worden!
+        {
+            if (p_Track.TopAvaiable)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void SwitchIncoming(SwitchTrackIncoming p_Track)
+        {
+            switch (p_Track.TopAvaiable)
+            {
+                case true:
+                    p_Track.TopAvaiable = false;
+                    p_Track.BottomAvaiable = true;
+                    break;
+
+                case false:
+                    p_Track.TopAvaiable = true;
+                    p_Track.BottomAvaiable = false;
+                    break;
+            }
+        }
+
+        private void SwitchOutgoing(SwitchTrackOutgoing p_Track)
+        {
+            switch (p_Track.TopAvaiable)
+            {
+                case true:
+                    p_Track.TopAvaiable = false;
+                    p_Track.BottomAvaiable = true;
+                    break;
+                case false:
+                    p_Track.TopAvaiable = true;
+                    p_Track.BottomAvaiable = false;
+                    break;
+            }
+        }
+        public void SwitchTrack(char p_switchChar)
+        {
+            // de char in de eerste if wordt meegegeven later in de view. Als degene dus op bijv. a klikt dan wordt de A knop de switchA, en dat krijgt als char mee 'A'
+            // De een of het ander is altijd avaiable
+
+            switch (p_switchChar)
+            {
+                case 'A':
+                    SwitchIncoming(switchA);
+                    break;
+
+                case 'B':
+                    SwitchOutgoing(switchB);
+                    break;
+
+                case 'C':
+                    SwitchIncoming(switchC);
+                    break;
+
+                case 'D':
+                    SwitchOutgoing(switchD);
+                    break;
+
+                case 'E':
+                    SwitchIncoming(switchE);
+                    break;
             }
         }
     }

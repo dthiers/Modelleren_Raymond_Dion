@@ -6,10 +6,7 @@ using System.Text;
 namespace Goudkoorts.Domain {
     public class StartTrack : Track{
 
-        private Track firstTrack;   // In de constructor aanmaken 
-
         public StartTrack() {
-
         }
 
         public override void RemoveCartFromTrack() {

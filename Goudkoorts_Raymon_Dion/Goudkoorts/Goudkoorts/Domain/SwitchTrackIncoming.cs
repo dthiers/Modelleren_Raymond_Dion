@@ -13,5 +13,8 @@ namespace Goudkoorts.Domain {
         public override void PlaceCartOnTrack(Cart cart) {
             throw new NotImplementedException();
         }
+
+        public Boolean TopAvaiable { get; set; }
+        public Boolean BottomAvaiable { get; set; }
     }
 }
