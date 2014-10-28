@@ -24,6 +24,10 @@ namespace Goudkoorts.Domain {
         private Track lastTrackNorth;
         private Track lastTrackSouth;
 
+        // TESTEN HIERZO
+        private BoatTrackView btv;
+        private GameView gv;
+
         public Game() {
             startTrackA = new StartTrack();
             startTrackB = new StartTrack();
@@ -40,6 +44,14 @@ namespace Goudkoorts.Domain {
 
             northQuay = new QuayTrack(northHarbor);
             southQuay = new QuayTrack(southHarbor);
+
+            northHarbor.InitBoatTrack();
+            southHarbor.InitBoatTrack();
+
+            InitTrack();
+
+            btv = new BoatTrackView(southQuay, southHarbor);
+            gv = new GameView(this, northQuay, southQuay);
         }
 
         /*
@@ -78,7 +90,7 @@ namespace Goudkoorts.Domain {
             switchA.PreviousBottom = current;
 
             // Starttrack C
-            for (int c = 0; c < 6; c++) {
+            for (int c = 0; c < 7; c++) {
                 if (c == 0) {
                     startTrackC.Next = new RegularTrack();
                     startTrackC.Next.Previous = startTrackC;
@@ -103,7 +115,7 @@ namespace Goudkoorts.Domain {
             current = switchB;
 
             switchB.NextTop = new RegularTrack();
-            switchB.NextTop.Previous = switchB.NextTop;
+            switchB.NextTop.Previous = switchB;
             current = switchB.NextTop;
 
             for (int d = 0; d < 4; d++) {
@@ -117,7 +129,7 @@ namespace Goudkoorts.Domain {
             switchE.PreviousTop = current;
             current = switchE;
 
-            for (int e = 0; e < 6; e++) {
+            for (int e = 0; e < 2; e++) {
                 current.Next = new RegularTrack();
                 current.Next.Previous = current;
                 current = current.Next;
@@ -127,25 +139,23 @@ namespace Goudkoorts.Domain {
             current.Next.Previous = current;
             current = northQuay;
 
-            for (int f = 0; f < 9; f++) {
+            for (int f = 0; f < 4; f++) {
                 current.Next = new RegularTrack();
                 current.Next.Previous = current;
                 current = current.Next;
             }
 
-            current = lastTrackNorth;
+            lastTrackNorth = current;
 
             // switchB onderzijde tot switchC
             current = switchB;
             switchB.NextBottom = new RegularTrack();
-            switchB.NextBottom.Previous = switchB.NextBottom; // Deze zijn lastig..
+            switchB.NextBottom.Previous = switchB; // Deze zijn lastig..
 
-            current = current.Next;
-            current.Next = new RegularTrack();
-            current.Next.Previous = current;
+            current = switchB.NextBottom;
 
-            current.Next = switchC.PreviousTop;
             switchC.PreviousTop = current;
+            current.Next = switchC;
             current = switchC;
 
             // switchC tot switchD
@@ -161,18 +171,14 @@ namespace Goudkoorts.Domain {
             switchD.NextTop.Previous = switchD;
             current = switchD.NextTop;
 
-            current.Next = new RegularTrack();
-            current.Next.Previous = current;
-            current = current.Next;
-
-            current.Next = switchE.PreviousBottom;
-            switchE.PreviousBottom.Previous = current;
+            current.Next = switchE;
+            switchE.PreviousBottom = current;
 
             // switchD tot einde southHarbor
             switchD.NextBottom = new RegularTrack();
             current = switchD.NextBottom;
 
-            for (int g = 0; g < 5; g++) {
+            for (int g = 0; g < 2; g++) {
                 current.Next = new RegularTrack();
                 current.Next.Previous = current;
                 current = current.Next;
@@ -182,14 +188,25 @@ namespace Goudkoorts.Domain {
             southQuay.Previous = current;
             current = southQuay;
 
-            for (int h = 0; h < 9; h++)
+            for (int h = 0; h < 4; h++)
             {
                 current.Next = new RegularTrack();
                 current.Next.Previous = current;
                 current = current.Next;
             }
 
-            current = lastTrackSouth;
+            lastTrackSouth = current;
+
+            switchA.TopAvaiable = true;
+            switchA.BottomAvaiable = true;
+            switchB.TopAvaiable = true;
+            switchB.BottomAvaiable = true;
+            switchC.BottomAvaiable = true;
+            switchE.TopAvaiable = true;
+            switchC.TopAvaiable = true;
+            switchD.TopAvaiable = true;
+            switchE.BottomAvaiable = true;
+            switchD.BottomAvaiable = true;
         }
 
         // spawn random cart
@@ -308,5 +325,16 @@ namespace Goudkoorts.Domain {
                     break;
             }
         }
+
+        public StartTrack GetStartA() {
+            return startTrackA;
+        }
+        public StartTrack GetStartB() {
+            return startTrackB;
+        }
+        public StartTrack GetStartC() {
+            return startTrackC;
+        }
+
     }
 }

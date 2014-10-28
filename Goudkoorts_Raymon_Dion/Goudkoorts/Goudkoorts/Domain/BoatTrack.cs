@@ -9,6 +9,7 @@ namespace Goudkoorts.Domain {
         public BoatTrack PreviousBoatTrack { get; set; }
         public Ship Ship { get; set; }
         public Boolean HasShip { get; set; }
+        public Boolean IsQuay { get; set; }
 
     }
 }

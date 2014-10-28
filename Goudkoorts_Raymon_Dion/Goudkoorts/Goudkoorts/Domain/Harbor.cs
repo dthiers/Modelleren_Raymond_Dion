@@ -7,89 +7,78 @@ namespace Goudkoorts.Domain {
     public class Harbor {
 
         // Variabelen om mee te spelen
-        private int amountOfTracksBeforeQuay = 5;
-        private int amountOfTracksAfterQuay = 5;
+        private int amountOfTracksBeforeQuay = 10;
+        private int amountOfTracksAfterQuay = 0;
 
-        private int newShipID = 0;
-        private List<Ship> Ships;
         private QuayTrack quayTrack;
 
-        private BoatTrack firstBoatTrack; // in constrcutor aanmaken
-        private BoatTrack lastBoatTrack; // Kan handig zijn als je van achteren wilt beginnen met zoeken :)
+        private BoatTrack firstBoatTrack;
+        private BoatTrack lastBoatTrack;
 
-
-        public Boolean ShipHasArrivedAtQuayTrack { get; set; }
 
         public Harbor() {
-            quayTrack = new QuayTrack(this); // DIT WEGHALEN!!!
             firstBoatTrack = new BoatTrack();
         }
 
-        /*
-         * Returns ship by ID
-         * */
-        public Ship GetShipByID(int p_id) {
-            foreach (Ship ship in Ships) {
-                if (ship.ShipID == p_id) {
-                    return ship;
-                }
-            }
-            return null;
-        }
-
-        /*
-         * Returns true if there is an empty ship in the harbor
-         * */
-        public Boolean HasEmptyShip() {
-            foreach (Ship ship in Ships) {
-                if (ship.IsEmpty) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        /*
-         * 
-         * */
-        public Ship SendEmptyShipToQuayTrack() {
-            return new Ship(1);
-        }
 
         /*
          * Move all ships if possible
          * */
-        public void MoveShips(Ship p_ship) {
-            // Vanaf de laatste boatTrack schepen een stukkie vooruit zetten
+        public void MoveShips() {
             BoatTrack current = lastBoatTrack;
 
-            // Hieronder is de laatste boatTrack, moeten we ff kijken wat er dan met een ship gebeurt..
-            if ((current.HasShip) && !(current.Ship.IsDocked) && !(current.NextBoatTrack.HasShip)) {
-                current.Ship = null;
+            if (current != null) {
+                if ((current.HasShip) && !(current.Ship.IsDocked) && (current.NextBoatTrack == null)) {
+                    current.Ship = null;
+                    current.HasShip = false;
+                }
             }
             current = current.PreviousBoatTrack;
 
-            // Door de rest heen loopen terug totdat er geen PreviousBoatTrack meer is
-            while (current.PreviousBoatTrack != null) {
-                // Ligt er een boot?
-                // Is die boot NIET gedocked?
-                // Heeft de volgende geen boot?
+            while (current != null) {
+                // Aansluiten in de file voor de dock
+                if ((current.NextBoatTrack.IsQuay) && !(quayTrack.HasDockedBoat)) {
+                    if (current.HasShip) {
+                        current.Ship.IsDocked = true;
+                        quayTrack.HasDockedBoat = true;
+                        SetBoatOnSpecificTrack(current, current.NextBoatTrack);
+                    }
+                }
+                // Normale move
                 if ((current.HasShip) && !(current.Ship.IsDocked) && !(current.NextBoatTrack.HasShip)) {
-                    current.NextBoatTrack.Ship = current.Ship;
-                    current.Ship = null;
+                    SetBoatOnSpecificTrack(current, current.NextBoatTrack);
                 }
                 current = current.PreviousBoatTrack;
             }
         }
 
-        public void CreateShipInHarbor() {
-            newShipID++;
-            Ships.Add(new Ship(newShipID));
+        /*
+         * Add a boat to the first boatTrack if there isn't one already
+         * */
+        public void AddBoatToBoatTrack() {
+            if (!firstBoatTrack.HasShip) {
+                firstBoatTrack.HasShip = true;
+                firstBoatTrack.Ship = new Ship();
+            }
+        }
+       
+        /*
+         * Sets the piece of QuayTrack for this Harbor
+         * */
+        public void SetQuayTrack(QuayTrack p_quayTrack) {
+            this.quayTrack = p_quayTrack;
+        }
+
+        private void SetBoatOnSpecificTrack(BoatTrack p_current, BoatTrack p_next) {
+            p_next.Ship = p_current.Ship;
+            p_next.HasShip = true;
+            p_current.Ship = null;
+            p_current.HasShip = false;
         }
 
         /*
-         * Initialize the boattrack
-         * */
+        * Initialize the boattrack
+        * */
         public void InitBoatTrack() { // DEZE OP PRIVATE ZETTEN!!
             BoatTrack current = null;
 
@@ -106,6 +95,8 @@ namespace Goudkoorts.Domain {
 
             // Hier komt de quay
             quayTrack.CurrentBoatTrack = new BoatTrack();   // In quayTrack natuurlijk een boatTrack maken
+            quayTrack.CurrentBoatTrack.IsQuay = true;       // Deze boatTrack is een quay (nodig voor docken)
+
             current.NextBoatTrack = quayTrack.CurrentBoatTrack;
             quayTrack.CurrentBoatTrack.PreviousBoatTrack = current;
             current = quayTrack.CurrentBoatTrack;
@@ -115,7 +106,7 @@ namespace Goudkoorts.Domain {
             // Previous setten
             current = quayTrack.CurrentBoatTrack.NextBoatTrack;
             current.PreviousBoatTrack = quayTrack.CurrentBoatTrack;
-            
+
 
             // Hier komen de laatste boatTracks
             for (int b = 0; b < amountOfTracksAfterQuay; b++) {
@@ -128,24 +119,15 @@ namespace Goudkoorts.Domain {
         }
 
         /*
-         * Sets the piece of QuayTrack for this Harbor
+         * 
+         * TESTDOELEINDEN
+         * 
          * */
-        public void SetQuayTrack(QuayTrack p_quayTrack) {
-            this.quayTrack = p_quayTrack;
+        public BoatTrack GetFirstBoatTrack() {
+            return firstBoatTrack;
         }
-
-        /*
-         * Return the size of the boatTrack
-         * */
-        public int GetBoatTrackSize() { // DEZE OP PRIVATE ZETTEN!!!!
-            int counter = 0;
-            BoatTrack current = firstBoatTrack;
-
-            while (current.NextBoatTrack != null) {
-                current = current.NextBoatTrack;
-                counter++;
-            }
-            return counter;
+        public BoatTrack GetLastBoatTrack() {
+            return lastBoatTrack;
         }
     }
 }

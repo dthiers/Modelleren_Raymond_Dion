@@ -7,12 +7,11 @@ namespace Goudkoorts.Domain {
     public class QuayTrack : Track{
 
         private Harbor harbor;
-
-        public int DockedShipID { get; set; }
+        public Boolean HasDockedBoat { get; set; }
         public BoatTrack CurrentBoatTrack { get; set; }
         public QuayTrack(Harbor p_harbor) {
             harbor = p_harbor;
-            harbor.SetQuayTrack(this);
+            p_harbor.SetQuayTrack(this);
         }
 
         public override void RemoveCartFromTrack() {
@@ -23,18 +22,17 @@ namespace Goudkoorts.Domain {
             throw new NotImplementedException();
         }
 
-        public Boolean HasShip() {
-            return DockedShipID > 0;
-        }
-
         public void UnloadCart() {
-
+            // Kan ik unloaden?
+            if ((CurrentBoatTrack.HasShip) && !(CurrentBoatTrack.Ship.IsFull)) {
+                CurrentBoatTrack.Ship.Cargo++;
+                // Cart.IsEmpty
+            }
+            // Is de boot vol? m.a.w. kan ik 'm undocken
+            if (CurrentBoatTrack.Ship.IsFull) {
+                CurrentBoatTrack.Ship.IsDocked = false;
+                HasDockedBoat = false;
+            }
         }
-
-        public void DockShip(int p_shipID) {
-            DockedShipID = p_shipID;
-        }
-
-
     }
 }

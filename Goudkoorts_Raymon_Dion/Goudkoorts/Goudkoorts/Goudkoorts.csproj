@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\BoatTrack.cs" />
+    <Compile Include="Domain\BoatTrackView.cs" />
     <Compile Include="Domain\Cart.cs" />
     <Compile Include="Domain\Game.cs" />
+    <Compile Include="Domain\GameView.cs" />
     <Compile Include="Domain\Harbor.cs" />
     <Compile Include="Domain\QuayTrack.cs" />
     <Compile Include="Domain\RegularTrack.cs" />
