@@ -1,0 +1,32 @@
+\ \	TopAvailable
+
+/ / 	BottomAvailable
+
+|^|	Switch met cart
+
+[  ]	Lege cart op een track
+
+[^^] 	Volle cart op een track
+
+====	Track
+
+|A|	Loods
+
+
+
+
+
+|A|========[  ]\ \      / /====================\ \
+	        |A|====|B|                      |E|================{__}========
+|B|[^^]========/ /      \ \====\ \      / /====/ /
+                                |C|====|D|
+|C|============================/ /      \ \========================{__}========
+
+
+StartA = 3
+StartB = 3
+StartC = 7
+A-C = 1 
+C-D = 1
+D-E = 1
+B-E = 5
