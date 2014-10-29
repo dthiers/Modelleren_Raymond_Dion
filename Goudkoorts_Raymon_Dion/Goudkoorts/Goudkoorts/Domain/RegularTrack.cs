@@ -6,12 +6,5 @@ using System.Text;
 namespace Goudkoorts.Domain {
     public class RegularTrack : Track {
 
-        public override void RemoveCartFromTrack() {
-            throw new NotImplementedException();
-        }
-
-        public override void PlaceCartOnTrack(Cart cart) {
-            throw new NotImplementedException();
-        }
     }
 }

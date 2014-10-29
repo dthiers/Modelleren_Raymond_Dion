@@ -15,18 +15,22 @@ namespace Goudkoorts.Domain {
             this.harbor = p_harbor;
             this.firstBoatTrack = harbor.GetFirstBoatTrack();
 
-            // HIERONDER IS TESTINVOER
+            //* HIERONDER IS TESTINVOER
+            DrawBoatTrackInHarbor();
+            harbor.AddBoatToBoatTrack();
             for (int i = 0; i < 2 ; i++) {
-                harbor.AddBoatToBoatTrack();
+                DrawBoatTrackInHarbor();
                 harbor.MoveShips();
             }
 
+            harbor.AddBoatToBoatTrack();
           
 
-            for (int x = 0; x < 10; x++) {
+            for (int x = 0; x < 15; x++) {
+                DrawBoatTrackInHarbor();
                 harbor.MoveShips();
             }
-            DrawBoatTrackInHarbor();
+            
 
             for (int y = 0; y < 7; y++) {
                 quay.UnloadCart();
@@ -34,14 +38,15 @@ namespace Goudkoorts.Domain {
 
             DrawBoatTrackInHarbor();
             quay.UnloadCart();
-
+            DrawBoatTrackInHarbor();
             harbor.MoveShips();
             DrawBoatTrackInHarbor();
 
             for (int h = 0; h < 4; h++) {
+                quay.UnloadCart();
                 harbor.MoveShips();
+                DrawBoatTrackInHarbor();
             }
-            DrawBoatTrackInHarbor();
             // TESTINVOER HIERBOVEN
         }
 

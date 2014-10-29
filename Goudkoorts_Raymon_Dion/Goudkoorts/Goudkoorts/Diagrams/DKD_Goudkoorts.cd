@@ -12,7 +12,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAQAACAAEAEAAAAAAAAAAA=</HashCode>
       <FileName>Domain\BoatTrack.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -22,34 +22,28 @@
   <Class Name="Goudkoorts.Domain.Cart">
     <Position X="12" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Cart.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Domain.Game">
     <Position X="17" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAQAAAAAAAIAAAAAAAAAAAAAAAAAAACAAAYBk=</HashCode>
+      <HashCode>AyAAAQAEQTJAACAYIQAAAAICAAAQAEgAGwQAKAAAaJk=</HashCode>
       <FileName>Domain\Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Domain.Harbor">
     <Position X="4.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACCAAAAEgAEAACAABQAAAAQAIAAAACBAAAAAA=</HashCode>
+      <HashCode>EQkAAOADAQEAAAAAAAACAAAQAAAAAAIAAAACAAAAAAA=</HashCode>
       <FileName>Domain\Harbor.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="firstTrack" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="Ships" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Goudkoorts.Domain.QuayTrack">
     <Position X="6.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QgAAAECAAAAAAAEAAAAAgAAACAAQAEAEAAAAAAAEQAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAAAIAEQAA=</HashCode>
       <FileName>Domain\QuayTrack.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -59,35 +53,35 @@
   <Class Name="Goudkoorts.Domain.Ship">
     <Position X="1.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAA=</HashCode>
+      <HashCode>AABACAAAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAA=</HashCode>
       <FileName>Domain\Ship.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Domain.StartTrack">
     <Position X="11" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAEAAAAAAAAAAAAAAAAAACAAQAAAAAAAADAAEQAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAESAA=</HashCode>
       <FileName>Domain\StartTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Domain.SwitchTrackIncoming">
     <Position X="13.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAEAAAAAAAAAAAAAAAAAACAAQAAAAAAAAAAAEQAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAkQAA=</HashCode>
       <FileName>Domain\SwitchTrackIncoming.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Domain.SwitchTrackOutgoing">
     <Position X="8.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAEAAAAAAAAAAAAAAAAAACAAQAAAAAAAAAAAEQAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAkQAA=</HashCode>
       <FileName>Domain\SwitchTrackOutgoing.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Domain.Track">
     <Position X="9.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAEAAAAAAAAAAAAAAAAAACAAQAAAAAAAAAAAEQAA=</HashCode>
+      <HashCode>AgAAAEAAAAAAAgAAAAQAAAAQCAQAAAAAAAAIAAAEQAA=</HashCode>
       <FileName>Domain\Track.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

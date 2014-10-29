@@ -6,5 +6,6 @@ using System.Text;
 namespace Goudkoorts.Domain {
     public class Cart {
         public Boolean IsFull { get; set; }
+        public Boolean HasMoved { get; set; }
     }
 }

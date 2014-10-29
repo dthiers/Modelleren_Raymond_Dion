@@ -13,7 +13,5 @@ namespace Goudkoorts.Domain {
         public Track PreviousTop { get; set; }
         public Track PreviousBottom { get; set; }
         public Boolean HasCart { get; set; }
-        public abstract void RemoveCartFromTrack();
-        public abstract void PlaceCartOnTrack(Cart cart);
     }
 }

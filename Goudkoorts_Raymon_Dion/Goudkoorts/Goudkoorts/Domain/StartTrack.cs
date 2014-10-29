@@ -9,12 +9,10 @@ namespace Goudkoorts.Domain {
         public StartTrack() {
         }
 
-        public override void RemoveCartFromTrack() {
-            throw new NotImplementedException();
-        }
-
-        public override void PlaceCartOnTrack(Cart cart) {
-            throw new NotImplementedException();
+        public void PlaceCartOnTrack(Cart cart) {
+            Cart.IsFull = true;
+            this.Next.Cart = cart;
+            this.Next.HasCart = true;
         }
 
         // ik denk dat dit goed is?
@@ -22,7 +20,6 @@ namespace Goudkoorts.Domain {
         {
             Cart = new Cart();
             PlaceCartOnTrack(Cart);
-            HasCart = true;
         }
     }
 }

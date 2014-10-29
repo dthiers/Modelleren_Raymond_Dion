@@ -15,19 +15,27 @@ namespace Goudkoorts.Domain {
             this.southQuay = p_SouthQuay;
 
             DrawCartTrack();
+            game.GetStartB().SpawnCart();
+            DrawCartTrack();
+
+            for (int i = 0; i < 17; i++) {
+                game.MoveCarts();
+                DrawCartTrack();
+            }
+
         }
 
         public void DrawCartTrack() {
             int z = 0;
-            string a = "|A|";
+            string a = "|A|=";
 
             string b = "";
 
-            string c = "|B|";
+            string c = "|B|=";
 
             string d = "";
 
-            string e = "|C|";
+            string e = "|C|=";
 
             StartTrack startA = game.GetStartA();
             StartTrack startB = game.GetStartB();
@@ -190,7 +198,7 @@ namespace Goudkoorts.Domain {
 
             
             String f = "";
-            for (z = 0; z < 55; z++) {
+            for (z = 0; z < 56; z++) {
                 f += " ";
             }
             f += "|  |";
@@ -206,7 +214,7 @@ namespace Goudkoorts.Domain {
 
 
         private String DrawReqularTrack(Track p_current) {
-            if (p_current.HasCart && p_current.Cart.IsFull){
+            if (p_current.Cart != null){
                 if (p_current.Cart.IsFull) {
                     return "[^^]";
                 }
@@ -217,6 +225,9 @@ namespace Goudkoorts.Domain {
 
         private String DrawSwitchIncomingTop(SwitchTrackIncoming p_current) {
             if (game.CanSwitchInFromTop(p_current)) {
+                if (p_current.HasCart) {
+                    return "\\C\\ ";
+                }
                 return "\\ \\ ";
             }
             return "    ";
@@ -224,6 +235,9 @@ namespace Goudkoorts.Domain {
 
         private String DrawSwitchIncomingBottom(SwitchTrackIncoming p_current) {
             if (game.CanSwitchInFromBottom(p_current)) {
+                if (p_current.HasCart) {
+                    return "/C/ ";
+                }
                 return "/ / ";
             }
             return "    ";
@@ -238,6 +252,9 @@ namespace Goudkoorts.Domain {
 
         private String DrawSwitchOutgoingTop(SwitchTrackOutgoing p_current) {
             if (game.CanSwitchOutFromTop(p_current)) {
+                if (p_current.HasCart) {
+                    return " /C/";
+                }
                 return " / /";
             }
             return "    ";
@@ -245,6 +262,9 @@ namespace Goudkoorts.Domain {
 
         private String DrawSwitchOutgoingBottom(SwitchTrackOutgoing p_current) {
             if (game.CanSwitchOutFromBottom(p_current)) {
+                if (p_current.HasCart) {
+                    return " \\C\\";
+                }
                 return " \\ \\";
             }
             return "    ";

@@ -54,159 +54,196 @@ namespace Goudkoorts.Domain {
             gv = new GameView(this, northQuay, southQuay);
         }
 
-        /*
-         * Double jointed, 3 starts, 2 ends
-         * */
-        private void InitTrack() {
-            // Startrack A
-            Track current = null;
-            for (int a = 0; a < 3; a++){
-                if (a == 0) {
-                    startTrackA.Next = new RegularTrack();
-                    startTrackA.Next.Previous = current;
-                    current = startTrackA.Next;
-                    continue;
+
+        public void MoveCarts() {
+            int z = 0;
+            // BEGINNEN BIJ lastTrackNorth
+            Track current = lastTrackNorth;
+
+            // ROUTE BOVEN
+            // VAN EINDE NORTHHARBOR TOT switchE
+            while (current.GetType() != typeof(SwitchTrackIncoming)) {
+                if (CanMoveCartNormal(current)) {
+                    SetCartOnSpecificTrack(current, current.Previous);
                 }
-                current.Next = new RegularTrack();
-                current.Next.Previous = current;
-                current = current.Next;
+                current = current.Previous;
             }
-            current.Next = switchA;
-            switchA.PreviousTop = current;
+            // switchE NAAR switchE.Next
+            if (current.HasCart && !current.Next.HasCart) {
+                SetCartOnSpecificTrack(current.Next, current);
+            }
+            //current = current.PreviousTop;
 
-            // Starttrack B
-            for (int b = 0; b < 3; b++) {
-                if (b == 0) {
-                    startTrackB.Next = new RegularTrack();
-                    startTrackB.Next.Previous = startTrackB;
-                    current = startTrackB.Next;
-                    continue;
+            // switchE naar previousTop
+            if (CanMoveCartToSwitchIncomingTop(current)) {
+                SetCartOnSpecificTrack(current, current.PreviousTop);
+            }
+            current = current.PreviousTop;
+
+            // switchE previousTop NAAR switchB
+            while (current != switchB) {
+                if (CanMoveCartNormal(current)) {
+                    SetCartOnSpecificTrack(current, current.Previous);
                 }
-                current.Next = new RegularTrack();
-                current.Next.Previous = current;
-                current = current.Next;
+                current = current.Previous;
             }
-            current.Next = switchA;
-            switchA.PreviousBottom = current;
 
-            // Starttrack C
-            for (int c = 0; c < 7; c++) {
-                if (c == 0) {
-                    startTrackC.Next = new RegularTrack();
-                    startTrackC.Next.Previous = startTrackC;
-                    current = startTrackC.Next;
-                    continue;
+            // switchB naar switchB.NextTop (reqularTrack)
+            if (CanMoveCartFromSwitchOutgoingToTop(current)){
+                SetCartOnSpecificTrack(current.NextTop, current);
+            }
+
+            // Stuk tussen switchA en switchB
+            for (z = 0; z < 2; z++) {
+                if (CanMoveCartNormal(current)) {
+                    SetCartOnSpecificTrack(current, current.Previous);
                 }
-                current.Next = new RegularTrack();
-                current.Next.Previous = current;
-                current = current.Next;
-            }
-            current.Next = switchC;
-            switchC.PreviousBottom = current;
-
-            // switchA bovenzijde
-            switchA.Next = new RegularTrack();
-            switchA.Next.Previous = switchA;
-            current = switchA.Next;
-
-            // switchB bovenzijde
-            current.Next = switchB;
-            switchB.Previous = current;
-            current = switchB;
-
-            switchB.NextTop = new RegularTrack();
-            switchB.NextTop.Previous = switchB;
-            current = switchB.NextTop;
-
-            for (int d = 0; d < 4; d++) {
-                current.Next = new RegularTrack();
-                current.Next.Previous = current;
-                current = current.Next;
+                current = current.Previous;
             }
 
-            // switchE tot einde northHarbor
-            current.Next = switchE;
-            switchE.PreviousTop = current;
+
+            // switchA naar previousTop (regularTrack)
+            //current = current.PreviousTop;
+            if (CanMoveCartToSwitchIncomingTop(current)) {
+                SetCartOnSpecificTrack(current, current.PreviousTop);
+            }
+            current = current.PreviousTop;
+
+            for (z = 0; z < 2; z++) {
+                if (CanMoveCartNormal(current)) {
+                    SetCartOnSpecificTrack(current, current.Previous);
+                }
+                current = current.Previous;
+            }
+
+            // switchE previousBottom naar switchD nextTop
             current = switchE;
+            if (CanMoveCartToSwitchIncomingBottom(current)) {
+                SetCartOnSpecificTrack(current, switchD.NextTop);
+            }
+            current = current.PreviousBottom;
 
-            for (int e = 0; e < 2; e++) {
-                current.Next = new RegularTrack();
-                current.Next.Previous = current;
-                current = current.Next;
+            if (CanMoveCartFromSwitchOutgoingToTop(current.Previous)) {
+                SetCartOnSpecificTrack(current, current.Previous);
             }
 
-            current.Next = northQuay;
-            current.Next.Previous = current;
-            current = northQuay;
-
-            for (int f = 0; f < 4; f++) {
-                current.Next = new RegularTrack();
-                current.Next.Previous = current;
-                current = current.Next;
+            // switchD naar switchC
+            for (z = 0; z < 2; z++) {
+                if (CanMoveCartNormal(current)) {
+                    SetCartOnSpecificTrack(current, current.Previous);
+                }
+                current = current.Previous;
             }
 
-            lastTrackNorth = current;
-
-            // switchB onderzijde tot switchC
-            current = switchB;
-            switchB.NextBottom = new RegularTrack();
-            switchB.NextBottom.Previous = switchB; // Deze zijn lastig..
-
-            current = switchB.NextBottom;
-
-            switchC.PreviousTop = current;
-            current.Next = switchC;
+            // tussen switchC en switchB
             current = switchC;
-
-            // switchC tot switchD
-            current.Next = new RegularTrack();
-            current.Next.Previous = current;
-            current = current.Next;
-
-            current.Next = switchD;
-            current.Next.Previous = current;
-
-            // switchD tot switchE
-            switchD.NextTop = new RegularTrack();
-            switchD.NextTop.Previous = switchD;
-            current = switchD.NextTop;
-
-            current.Next = switchE;
-            switchE.PreviousBottom = current;
-
-            // switchD tot einde southHarbor
-            switchD.NextBottom = new RegularTrack();
-            current = switchD.NextBottom;
-
-            for (int g = 0; g < 2; g++) {
-                current.Next = new RegularTrack();
-                current.Next.Previous = current;
-                current = current.Next;
+            if (CanMoveCartToSwitchIncomingTop(current)) {
+                 SetCartOnSpecificTrack(current, current.PreviousTop);
             }
+            current = current.PreviousTop.Previous;
 
-            current.Next = southQuay;
-            southQuay.Previous = current;
-            current = southQuay;
-
-            for (int h = 0; h < 4; h++)
-            {
-                current.Next = new RegularTrack();
-                current.Next.Previous = current;
-                current = current.Next;
+            
+            if (CanMoveCartFromSwitchOutgoingToBottom(current)) {
+                SetCartOnSpecificTrack(current, current.NextBottom);
             }
+            
+            // switchA naar StartFieldB
+            current = switchA;
+            if (CanMoveCartToSwitchIncomingBottom(current)) {
+                SetCartOnSpecificTrack(current, current.PreviousBottom);
+            }
+            current = current.PreviousBottom;
 
-            lastTrackSouth = current;
+            for (z = 0; z < 2; z++) {
+                if (CanMoveCartNormal(current)) {
+                    SetCartOnSpecificTrack(current, current.Previous);
+                }
+                current = current.Previous;
+            }
+        }
 
-            switchA.TopAvaiable = true;
-            switchA.BottomAvaiable = true;
-            switchB.TopAvaiable = true;
-            switchB.BottomAvaiable = true;
-            switchC.BottomAvaiable = true;
-            switchE.TopAvaiable = true;
-            switchC.TopAvaiable = true;
-            switchD.TopAvaiable = true;
-            switchE.BottomAvaiable = true;
-            switchD.BottomAvaiable = true;
+        private Boolean CanMoveCartNormal(Track p_current) {
+            return (!p_current.HasCart && p_current.Previous.HasCart) ;
+        }
+
+        private Boolean CanMoveCartToSwitchIncomingTop(Track p_current) {
+            SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
+            return (p_in.TopAvaiable && p_in.PreviousTop.HasCart && !p_current.HasCart) ;
+        }
+
+        private Boolean CanMoveCartToSwitchIncomingBottom(Track p_current) {
+            SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
+            return (p_in.BottomAvaiable && p_in.PreviousBottom.HasCart && !p_current.HasCart);
+        }
+
+        private Boolean CanMoveCartFromSwitchOutgoingToTop(Track p_current) {
+            SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
+            return (p_out.TopAvaiable && p_out.HasCart && !p_out.NextTop.HasCart);
+        }
+
+        private Boolean CanMoveCartFromSwitchOutgoingToBottom(Track p_current) {
+             SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
+             return (p_out.BottomAvaiable && p_out.HasCart && !p_out.NextBottom.HasCart);
+        }
+
+        /// <summary>
+        /// Cart from previous to current
+        /// Cart van Links naar rechts plaatsen
+        /// Links = previous
+        /// Rechts = current
+        /// Naar Van
+        /// </summary>
+        /// <param name="p_current"></param>
+        /// <param name="p_previous"></param>
+        private void SetCartOnSpecificTrack(Track p_current, Track p_previous) {
+            p_current.Cart = p_previous.Cart;
+            p_current.HasCart = true;
+            if (p_current.GetType() == typeof(SwitchTrackIncoming)) {
+                SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
+                if (p_in.TopAvaiable) {
+                    p_previous.Cart = null;
+                    p_previous.HasCart = false;
+                }
+                else {
+                    p_previous.Cart = null;
+                    p_previous.HasCart = false;
+                }               
+            }
+            else if (p_current.GetType() == typeof(SwitchTrackOutgoing)) {
+                SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
+                if (p_out.TopAvaiable) {
+                    p_previous.Cart = null;
+                    p_previous.HasCart = true;
+                }
+                else {
+                    p_previous.Cart = null;
+                    p_previous.HasCart = false;
+                }
+            }
+            else {
+                p_previous.HasCart = false;
+                p_previous.Cart = null;
+            }
+        }
+
+        private void ClearTurn() {
+            switchA.CartHasMovedIn = false;
+            switchB.CartHasMovedIn = false;
+            switchC.CartHasMovedIn = false;
+            switchD.CartHasMovedIn = false;
+            switchE.CartHasMovedIn = false;
+        }
+
+        private Boolean IsReqular(Track p_previous){
+            return p_previous.GetType() == typeof(RegularTrack);
+        }
+
+        private Boolean IsSwitchIncoming(Track p_previous) {
+            return p_previous.GetType() == typeof(SwitchTrackIncoming);
+        }
+
+        private Boolean isSwitchOutgoing(Track p_previous) {
+            return p_previous.GetType() == typeof(SwitchTrackOutgoing);
         }
 
         // spawn random cart
@@ -324,6 +361,160 @@ namespace Goudkoorts.Domain {
                     SwitchIncoming(switchE);
                     break;
             }
+        }
+
+        /*
+         * Double jointed, 3 starts, 2 ends
+         * */
+        private void InitTrack() {
+            // Startrack A
+            Track current = null;
+            for (int a = 0; a < 3; a++) {
+                if (a == 0) {
+                    startTrackA.Next = new RegularTrack();
+                    startTrackA.Next.Previous = current;
+                    current = startTrackA.Next;
+                    continue;
+                }
+                current.Next = new RegularTrack();
+                current.Next.Previous = current;
+                current = current.Next;
+            }
+            current.Next = switchA;
+            switchA.PreviousTop = current;
+
+            // Starttrack B
+            for (int b = 0; b < 3; b++) {
+                if (b == 0) {
+                    startTrackB.Next = new RegularTrack();
+                    startTrackB.Next.Previous = startTrackB;
+                    current = startTrackB.Next;
+                    continue;
+                }
+                current.Next = new RegularTrack();
+                current.Next.Previous = current;
+                current = current.Next;
+            }
+            current.Next = switchA;
+            switchA.PreviousBottom = current;
+
+            // Starttrack C
+            for (int c = 0; c < 7; c++) {
+                if (c == 0) {
+                    startTrackC.Next = new RegularTrack();
+                    startTrackC.Next.Previous = startTrackC;
+                    current = startTrackC.Next;
+                    continue;
+                }
+                current.Next = new RegularTrack();
+                current.Next.Previous = current;
+                current = current.Next;
+            }
+            current.Next = switchC;
+            switchC.PreviousBottom = current;
+
+            // switchA bovenzijde
+            switchA.Next = new RegularTrack();
+            switchA.Next.Previous = switchA;
+            current = switchA.Next;
+
+            // switchB bovenzijde
+            current.Next = switchB;
+            switchB.Previous = current;
+            current = switchB;
+
+            switchB.NextTop = new RegularTrack();
+            switchB.NextTop.Previous = switchB;
+            current = switchB.NextTop;
+
+            for (int d = 0; d < 4; d++) {
+                current.Next = new RegularTrack();
+                current.Next.Previous = current;
+                current = current.Next;
+            }
+
+            // switchE tot einde northHarbor
+            current.Next = switchE;
+            switchE.PreviousTop = current;
+            current = switchE;
+
+            for (int e = 0; e < 2; e++) {
+                current.Next = new RegularTrack();
+                current.Next.Previous = current;
+                current = current.Next;
+            }
+
+            current.Next = northQuay;
+            current.Next.Previous = current;
+            current = northQuay;
+
+            for (int f = 0; f < 3; f++) {
+                current.Next = new RegularTrack();
+                current.Next.Previous = current;
+                current = current.Next;
+            }
+
+            lastTrackNorth = current;
+
+            // switchB onderzijde tot switchC
+            current = switchB;
+            switchB.NextBottom = new RegularTrack();
+            switchB.NextBottom.Previous = switchB; // Deze zijn lastig..
+
+            current = switchB.NextBottom;
+
+            switchC.PreviousTop = current;
+            current.Next = switchC;
+            current = switchC;
+
+            // switchC tot switchD
+            current.Next = new RegularTrack();
+            current.Next.Previous = current;
+            current = current.Next;
+
+            current.Next = switchD;
+            current.Next.Previous = current;
+
+            // switchD tot switchE
+            switchD.NextTop = new RegularTrack();
+            switchD.NextTop.Previous = switchD;
+            current = switchD.NextTop;
+
+            current.Next = switchE;
+            switchE.PreviousBottom = current;
+
+            // switchD tot einde southHarbor
+            switchD.NextBottom = new RegularTrack();
+            current = switchD.NextBottom;
+
+            for (int g = 0; g < 2; g++) {
+                current.Next = new RegularTrack();
+                current.Next.Previous = current;
+                current = current.Next;
+            }
+
+            current.Next = southQuay;
+            southQuay.Previous = current;
+            current = southQuay;
+
+            for (int h = 0; h < 4; h++) {
+                current.Next = new RegularTrack();
+                current.Next.Previous = current;
+                current = current.Next;
+            }
+
+            lastTrackSouth = current;
+
+            //switchA.TopAvaiable = true;
+            switchA.BottomAvaiable = true;
+            //switchB.TopAvaiable = true;
+            switchB.BottomAvaiable = true;
+            //switchC.BottomAvaiable = true;
+            //switchE.TopAvaiable = true;
+            switchC.TopAvaiable = true;
+            switchD.TopAvaiable = true;
+            switchE.BottomAvaiable = true;
+            //switchD.BottomAvaiable = true;
         }
 
         public StartTrack GetStartA() {

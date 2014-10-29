@@ -7,8 +7,8 @@ namespace Goudkoorts.Domain {
     public class Harbor {
 
         // Variabelen om mee te spelen
-        private int amountOfTracksBeforeQuay = 10;
-        private int amountOfTracksAfterQuay = 0;
+        private int amountOfTracksBeforeQuay = 13;
+        private int amountOfTracksAfterQuay = 2;
 
         private QuayTrack quayTrack;
 
@@ -28,7 +28,7 @@ namespace Goudkoorts.Domain {
             BoatTrack current = lastBoatTrack;
 
             if (current != null) {
-                if ((current.HasShip) && !(current.Ship.IsDocked) && (current.NextBoatTrack == null)) {
+                if (CanLeaveHarbor(current)) {
                     current.Ship = null;
                     current.HasShip = false;
                 }
@@ -37,7 +37,7 @@ namespace Goudkoorts.Domain {
 
             while (current != null) {
                 // Aansluiten in de file voor de dock
-                if ((current.NextBoatTrack.IsQuay) && !(quayTrack.HasDockedBoat)) {
+                if (CheckIfNextDockedAndQuay(current)) {
                     if (current.HasShip) {
                         current.Ship.IsDocked = true;
                         quayTrack.HasDockedBoat = true;
@@ -45,7 +45,7 @@ namespace Goudkoorts.Domain {
                     }
                 }
                 // Normale move
-                if ((current.HasShip) && !(current.Ship.IsDocked) && !(current.NextBoatTrack.HasShip)) {
+                if (CanMove(current)) {
                     SetBoatOnSpecificTrack(current, current.NextBoatTrack);
                 }
                 current = current.PreviousBoatTrack;
@@ -69,11 +69,38 @@ namespace Goudkoorts.Domain {
             this.quayTrack = p_quayTrack;
         }
 
+        
         private void SetBoatOnSpecificTrack(BoatTrack p_current, BoatTrack p_next) {
             p_next.Ship = p_current.Ship;
             p_next.HasShip = true;
             p_current.Ship = null;
             p_current.HasShip = false;
+        }
+
+        /*
+         * Returns true if current.NextBoatTrack is a quay and doesn't have a docked boat
+         * */
+        private Boolean CheckIfNextDockedAndQuay(BoatTrack p_current) {
+            return (p_current.NextBoatTrack.IsQuay) && !(quayTrack.HasDockedBoat);
+        }
+
+        /*
+         * Returns true if
+         *         - current boatTrack has a ship
+         *         - ship on current boatTrack is NOT docked
+         *         - the next boatTrack doesn't have a ship blocking its way
+         * */
+        private Boolean CanMove(BoatTrack p_current) {
+            return (p_current.HasShip) && !(p_current.Ship.IsDocked) && !(p_current.NextBoatTrack.HasShip);
+        }
+
+        /// <summary>
+        /// Returns wether or not a ship is on the last piece of boatTrack and "leaves the harbor" with the next move
+        /// </summary>
+        /// <param name="p_current">Last piece of boatTrack</param>
+        /// <returns>ship can leave harbor</returns>
+        private Boolean CanLeaveHarbor(BoatTrack p_current) {
+            return (p_current.HasShip) && !(p_current.Ship.IsDocked) && (p_current.NextBoatTrack == null);
         }
 
         /*
