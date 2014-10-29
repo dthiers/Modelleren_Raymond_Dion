@@ -13,5 +13,6 @@ namespace Goudkoorts.Domain {
         public Track PreviousTop { get; set; }
         public Track PreviousBottom { get; set; }
         public Boolean HasCart { get; set; }
+        public Boolean Marker { get; set; }
     }
 }

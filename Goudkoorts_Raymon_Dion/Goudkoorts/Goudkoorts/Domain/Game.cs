@@ -27,7 +27,7 @@ namespace Goudkoorts.Domain {
         // TESTEN HIERZO
         private BoatTrackView btv;
         private GameView gv;
-
+        
         public Game() {
             startTrackA = new StartTrack();
             startTrackB = new StartTrack();
@@ -81,16 +81,11 @@ namespace Goudkoorts.Domain {
             current = current.PreviousTop;
 
             // switchE previousTop NAAR switchB
-            while (current != switchB) {
+            while (current.GetType() != typeof(SwitchTrackOutgoing)) {
                 if (CanMoveCartNormal(current)) {
                     SetCartOnSpecificTrack(current, current.Previous);
                 }
                 current = current.Previous;
-            }
-
-            // switchB naar switchB.NextTop (reqularTrack)
-            if (CanMoveCartFromSwitchOutgoingToTop(current)){
-                SetCartOnSpecificTrack(current.NextTop, current);
             }
 
             // Stuk tussen switchA en switchB
@@ -118,18 +113,24 @@ namespace Goudkoorts.Domain {
 
             // switchE previousBottom naar switchD nextTop
             current = switchE;
-            if (CanMoveCartToSwitchIncomingBottom(current)) {
+            if (CanMoveCartToSwitchIncomingBottom(current))
+            {
                 SetCartOnSpecificTrack(current, switchD.NextTop);
             }
             current = current.PreviousBottom;
 
-            if (CanMoveCartFromSwitchOutgoingToTop(current.Previous)) {
+            if (CanMoveCartFromSwitchOutgoingToTop(current.Previous))
+            {
                 SetCartOnSpecificTrack(current, current.Previous);
             }
 
+            current = current.Previous;
+
             // switchD naar switchC
-            for (z = 0; z < 2; z++) {
-                if (CanMoveCartNormal(current)) {
+            for (z = 0; z < 2; z++)
+            {
+                if (CanMoveCartNormal(current))
+                {
                     SetCartOnSpecificTrack(current, current.Previous);
                 }
                 current = current.Previous;
@@ -137,29 +138,36 @@ namespace Goudkoorts.Domain {
 
             // tussen switchC en switchB
             current = switchC;
-            if (CanMoveCartToSwitchIncomingTop(current)) {
-                 SetCartOnSpecificTrack(current, current.PreviousTop);
+            if (CanMoveCartToSwitchIncomingTop(current))
+            {
+                SetCartOnSpecificTrack(current, current.PreviousTop);
             }
-            current = current.PreviousTop.Previous;
+            current = current.PreviousTop;
 
-            
-            if (CanMoveCartFromSwitchOutgoingToBottom(current)) {
-                SetCartOnSpecificTrack(current, current.NextBottom);
+            if (CanMoveCartFromSwitchOutgoingToBottom(current.Previous))
+            {
+                SetCartOnSpecificTrack(current, current.Previous);
             }
-            
+
             // switchA naar StartFieldB
             current = switchA;
-            if (CanMoveCartToSwitchIncomingBottom(current)) {
+            if (CanMoveCartToSwitchIncomingBottom(current))
+            {
                 SetCartOnSpecificTrack(current, current.PreviousBottom);
             }
+
             current = current.PreviousBottom;
 
-            for (z = 0; z < 2; z++) {
-                if (CanMoveCartNormal(current)) {
+            for (z = 0; z < 2; z++)
+            {
+                if (CanMoveCartNormal(current))
+                {
                     SetCartOnSpecificTrack(current, current.Previous);
                 }
                 current = current.Previous;
             }
+            
+           // SetCartsToFalse();
         }
 
         private Boolean CanMoveCartNormal(Track p_current) {
@@ -186,6 +194,163 @@ namespace Goudkoorts.Domain {
              return (p_out.BottomAvaiable && p_out.HasCart && !p_out.NextBottom.HasCart);
         }
 
+        private void SetCartsToFalse()
+        {
+            Track current = lastTrackNorth;
+            // zet alles op false vanaf northharbor einde tot switchE
+
+            while (current.GetType() != typeof(SwitchTrackIncoming))
+            {
+                if (current.Cart != null)
+                {
+                    current.Cart.HasMoved = false;
+                }
+                current = current.Previous;
+            }
+
+            current = switchE;
+
+            // false bij switch E
+            if (current.Cart != null)
+            {
+                current.Cart.HasMoved = false;
+            }
+
+            // false vanaf switchE.Top naar switchB
+
+            if (current.PreviousTop.Cart != null)
+            {
+                current.PreviousTop.Cart = null;
+            }
+
+            current = current.PreviousTop;
+
+            while (current.GetType() != typeof(SwitchTrackOutgoing))
+            {
+                if (current.Cart != null)
+                {
+                    current.Cart.HasMoved = false;
+                }
+                current = current.Previous;
+            }
+
+            current = switchE;
+            // E naar D false
+
+            if (current.PreviousBottom.Cart != null)
+            {
+                current.PreviousBottom.Cart.HasMoved = false;
+            }
+
+            current = switchD;
+            // cart in D false
+            if (current.Cart != null)
+            {
+                current.Cart.HasMoved = false;
+            }
+
+            current = current.Previous;
+
+            if (current.Cart != null)
+            {
+                current.Cart.HasMoved = false;
+            }
+
+            // zet C Cart op false
+            current = switchC;
+
+            if (current.Cart != null)
+            {
+                current.Cart.HasMoved = false;
+            }
+
+            // van C naar B
+            if (current.PreviousTop.Cart != null)
+            {
+                current.PreviousTop.Cart.HasMoved = false;
+            }
+
+            // zet B cart op false;
+            current = switchB;
+
+            if (current.Cart != null)
+            {
+                current.Cart.HasMoved = false;
+            }
+
+            current = current.Previous;
+
+            if (current.Cart != null)
+            {
+                current.Cart.HasMoved = false;
+            }
+
+            // einde south naar switchD
+            current = switchD.NextBottom;
+        //    current = lastTrackSouth;
+            while (current.Next != null)
+            {
+                if (current.Cart != null)
+                {
+                    current.Cart.HasMoved = false;
+                }
+                current = current.Next;
+            }
+
+            // van startC naar C
+            current = startTrackC.Next;
+
+            while (current.GetType() != typeof(SwitchTrackIncoming))
+            {
+                if (current.Cart != null)
+                {
+                    current.Cart.HasMoved = false;
+                }
+                current = current.Next;
+            }
+
+            // van startB naar A
+
+            current = startTrackB.Next;
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (current.Cart != null)
+                {
+                    current.Cart.HasMoved = false;
+                }
+                current = current.Next;
+            }
+            // startA naar A
+
+            current = startTrackA.Next;
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (current.Cart != null)
+                {
+                    current.Cart.HasMoved = false;
+                }
+                current = current.Next;
+            }
+
+            // switchA cart = false;
+
+            current = switchA;
+
+            if (current.Cart != null)
+            {
+                current.Cart.HasMoved = false;
+            }
+
+            current = current.Next;
+
+            if (current.Cart != null)
+            {
+                current.Cart.HasMoved = false;
+            }
+        }
+
         /// <summary>
         /// Cart from previous to current
         /// Cart van Links naar rechts plaatsen
@@ -196,42 +361,48 @@ namespace Goudkoorts.Domain {
         /// <param name="p_current"></param>
         /// <param name="p_previous"></param>
         private void SetCartOnSpecificTrack(Track p_current, Track p_previous) {
-            p_current.Cart = p_previous.Cart;
-            p_current.HasCart = true;
-            if (p_current.GetType() == typeof(SwitchTrackIncoming)) {
-                SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
-                if (p_in.TopAvaiable) {
-                    p_previous.Cart = null;
-                    p_previous.HasCart = false;
-                }
-                else {
-                    p_previous.Cart = null;
-                    p_previous.HasCart = false;
-                }               
-            }
-            else if (p_current.GetType() == typeof(SwitchTrackOutgoing)) {
-                SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
-                if (p_out.TopAvaiable) {
-                    p_previous.Cart = null;
-                    p_previous.HasCart = true;
-                }
-                else {
-                    p_previous.Cart = null;
-                    p_previous.HasCart = false;
-                }
-            }
-            else {
-                p_previous.HasCart = false;
-                p_previous.Cart = null;
-            }
-        }
-
-        private void ClearTurn() {
-            switchA.CartHasMovedIn = false;
-            switchB.CartHasMovedIn = false;
-            switchC.CartHasMovedIn = false;
-            switchD.CartHasMovedIn = false;
-            switchE.CartHasMovedIn = false;
+        //    if (p_previous.Cart != null)
+        //    {
+           //     if (!p_previous.Cart.HasMoved)
+          //      {
+                    p_current.Cart = p_previous.Cart;
+                    p_current.HasCart = true;
+             //       p_current.Cart.HasMoved = true;
+                    if (p_current.GetType() == typeof(SwitchTrackIncoming))
+                    {
+                        SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
+                        if (p_in.TopAvaiable)
+                        {
+                            p_previous.Cart = null;
+                            p_previous.HasCart = false;
+                        }
+                        else
+                        {
+                            p_previous.Cart = null;
+                            p_previous.HasCart = false;
+                        }
+                    }
+                    else if (p_current.GetType() == typeof(SwitchTrackOutgoing))
+                    {
+                        SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
+                        if (p_out.TopAvaiable)
+                        {
+                            p_previous.Cart = null;
+                            p_previous.HasCart = true;
+                        }
+                        else
+                        {
+                            p_previous.Cart = null;
+                            p_previous.HasCart = false;
+                        }
+                    }
+                    else
+                    {
+                        p_previous.HasCart = false;
+                        p_previous.Cart = null;
+                    }
+            //    }
+          //  }
         }
 
         private Boolean IsReqular(Track p_previous){
