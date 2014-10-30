@@ -82,10 +82,19 @@ namespace Goudkoorts.Domain {
 
             // switchE previousTop NAAR switchB
             while (current.GetType() != typeof(SwitchTrackOutgoing)) {
-                if (CanMoveCartNormal(current)) {
-                    SetCartOnSpecificTrack(current, current.Previous);
+                if (current.Previous.GetType() != typeof(SwitchTrackOutgoing))
+                {
+                    if (CanMoveCartNormal(current))
+                    {
+                        SetCartOnSpecificTrack(current, current.Previous);
+                    }
                 }
                 current = current.Previous;
+            }
+
+            if (CanMoveCartFromSwitchOutgoingToTop(current))
+            {
+                SetCartOnSpecificTrack(current.NextTop, current);
             }
 
             // Stuk tussen switchA en switchB
@@ -167,7 +176,7 @@ namespace Goudkoorts.Domain {
                 current = current.Previous;
             }
             
-           // SetCartsToFalse();
+            SetCartsToFalse();
         }
 
         private Boolean CanMoveCartNormal(Track p_current) {
@@ -361,13 +370,13 @@ namespace Goudkoorts.Domain {
         /// <param name="p_current"></param>
         /// <param name="p_previous"></param>
         private void SetCartOnSpecificTrack(Track p_current, Track p_previous) {
-        //    if (p_previous.Cart != null)
-        //    {
-           //     if (!p_previous.Cart.HasMoved)
-          //      {
+            if (p_previous.Cart != null)
+            {
+                if (!p_previous.Cart.HasMoved)
+                {
                     p_current.Cart = p_previous.Cart;
                     p_current.HasCart = true;
-             //       p_current.Cart.HasMoved = true;
+                    p_current.Cart.HasMoved = true;
                     if (p_current.GetType() == typeof(SwitchTrackIncoming))
                     {
                         SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
@@ -401,8 +410,8 @@ namespace Goudkoorts.Domain {
                         p_previous.HasCart = false;
                         p_previous.Cart = null;
                     }
-            //    }
-          //  }
+                }
+            }
         }
 
         private Boolean IsReqular(Track p_previous){
