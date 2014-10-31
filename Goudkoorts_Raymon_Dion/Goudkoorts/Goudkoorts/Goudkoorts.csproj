@@ -41,14 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\ApplicationView.cs" />
     <Compile Include="Domain\BoatTrack.cs" />
     <Compile Include="Domain\BoatTrackView.cs" />
     <Compile Include="Domain\Cart.cs" />
+    <Compile Include="Domain\Con_Application.cs" />
+    <Compile Include="Domain\Con_KeyHandler.cs" />
     <Compile Include="Domain\Game.cs" />
     <Compile Include="Domain\GameView.cs" />
     <Compile Include="Domain\Harbor.cs" />
     <Compile Include="Domain\QuayTrack.cs" />
     <Compile Include="Domain\RegularTrack.cs" />
+    <Compile Include="Domain\ScoreView.cs" />
     <Compile Include="Domain\Ship.cs" />
     <Compile Include="Domain\SwitchTrackIncoming.cs" />
     <Compile Include="Domain\SwitchTrackOutgoing.cs" />

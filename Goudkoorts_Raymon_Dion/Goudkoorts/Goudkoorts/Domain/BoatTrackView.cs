@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace Goudkoorts.Domain {
-    class BoatTrackView {
+    public class BoatTrackView {
 
         private QuayTrack quay;
         private Harbor harbor;
@@ -15,7 +15,7 @@ namespace Goudkoorts.Domain {
             this.harbor = p_harbor;
             this.firstBoatTrack = harbor.GetFirstBoatTrack();
 
-            //* HIERONDER IS TESTINVOER
+            /* HIERONDER IS TESTINVOER
             DrawBoatTrackInHarbor();
             harbor.AddBoatToBoatTrack();
             for (int i = 0; i < 2 ; i++) {
@@ -47,7 +47,7 @@ namespace Goudkoorts.Domain {
                 harbor.MoveShips();
                 DrawBoatTrackInHarbor();
             }
-            // TESTINVOER HIERBOVEN
+            TESTINVOER HIERBOVEN*/
         }
 
         public void DrawBoatTrackInHarbor() {

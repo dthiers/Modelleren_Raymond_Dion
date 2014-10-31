@@ -25,8 +25,8 @@ namespace Goudkoorts.Domain {
         private Track lastTrackSouth;
 
         // TESTEN HIERZO
-        private BoatTrackView btv;
-        private GameView gv;
+        //private BoatTrackView btv;
+        //private GameView gv;
         
         public Game() {
             startTrackA = new StartTrack();
@@ -49,9 +49,6 @@ namespace Goudkoorts.Domain {
             southHarbor.InitBoatTrack();
 
             InitTrack();
-
-            btv = new BoatTrackView(southQuay, southHarbor);
-            gv = new GameView(this, northQuay, southQuay);
         }
 
 
@@ -706,6 +703,18 @@ namespace Goudkoorts.Domain {
         public StartTrack GetStartC() {
             return startTrackC;
         }
+        public BoatTrackView GetBoatTrackViewNorth() {
+            return new BoatTrackView(northQuay, northHarbor);
+        }
+        public BoatTrackView GetBoatTrackViewSouth() {
+            return new BoatTrackView(southQuay, southHarbor);
+        }
+        public GameView GetGameView() {
+            return new GameView(this, northQuay, southQuay);
+        }
 
+        public void Score() {
+
+        }
     }
 }

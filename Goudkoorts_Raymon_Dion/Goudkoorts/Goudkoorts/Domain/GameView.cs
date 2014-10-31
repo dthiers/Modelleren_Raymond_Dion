@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace Goudkoorts.Domain {
-    class GameView {
+    public class GameView {
 
         private Game game;
         private QuayTrack northQuay, southQuay;
@@ -14,6 +14,7 @@ namespace Goudkoorts.Domain {
             this.northQuay = p_NorthQuay;
             this.southQuay = p_SouthQuay;
 
+            /*
             DrawCartTrack();
             game.GetStartB().SpawnCart();
             DrawCartTrack();
@@ -22,7 +23,7 @@ namespace Goudkoorts.Domain {
                 game.MoveCarts();
                 DrawCartTrack();
             }
-
+            */
         }
 
         public void DrawCartTrack() {
@@ -220,7 +221,7 @@ namespace Goudkoorts.Domain {
                 }
                 return "[  ]";
             }
-            return ":==:";
+            return " __ ";
         }
 
         private String DrawSwitchIncomingTop(SwitchTrackIncoming p_current) {
