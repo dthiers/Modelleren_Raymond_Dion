@@ -468,13 +468,13 @@ namespace Goudkoorts.Domain {
         {
             // een random int generator, A = 1, B = 2 , C = 3
             Random random = new Random();
-            int generator = random.Next(1, 3);
+            int generator = random.Next(0, 30);
 
-            if (generator == 1)
+            if (generator <= 10)
             {
                 startTrackA.SpawnCart();
             }
-            else if (generator == 2)
+            else if (generator > 10 && generator <= 20)
             {
                 startTrackB.SpawnCart();
             }
