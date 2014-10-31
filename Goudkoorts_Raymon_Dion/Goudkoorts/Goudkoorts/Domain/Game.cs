@@ -59,7 +59,20 @@ namespace Goudkoorts.Domain {
 
             // ROUTE BOVEN
             // VAN EINDE NORTHHARBOR TOT switchE
+            /*
+             if (current.Next == null) {
+                 current.Cart = null;
+                 current.HasCart = false;
+             }
+              * */
+
             while (current.GetType() != typeof(SwitchTrackIncoming)) {
+                if (current.Previous.GetType() == typeof(QuayTrack)) {
+                    QuayTrack quayN = (QuayTrack)current.Previous;
+                    if (quayN.HasDockedBoat && quayN.HasCart) {
+                        quayN.UnloadCart();
+                    }
+                }
                 if (CanMoveCartNormal(current)) {
                     SetCartOnSpecificTrack(current, current.Previous);
                 }
@@ -176,9 +189,22 @@ namespace Goudkoorts.Domain {
 
             current = lastTrackSouth;
 
+            /*
+            if (current.Next == null) {
+                current.Cart = null;
+                current.HasCart = false;
+            }
+             * */
+
             // einde TrackSouth tot switchD;
             while (current.GetType() != typeof(SwitchTrackOutgoing))
             {
+                if (current.Previous.GetType() == typeof(QuayTrack)) {
+                    QuayTrack quayS = (QuayTrack)current.Previous;
+                    if (quayS.HasDockedBoat && quayS.HasCart) {
+                        quayS.UnloadCart();
+                    }
+                }
                 if (current.Previous.GetType() != typeof(SwitchTrackOutgoing))
                 {
                     if (CanMoveCartNormal(current))
@@ -214,6 +240,11 @@ namespace Goudkoorts.Domain {
             }
 
             SetCartsToFalse();
+        }
+
+        public void MoveBoats() {
+            northHarbor.MoveShips();
+            southHarbor.MoveShips();
         }
 
         private Boolean CanMoveCartNormal(Track p_current) {
@@ -411,42 +442,45 @@ namespace Goudkoorts.Domain {
             {
                 if (!p_previous.Cart.HasMoved)
                 {
-                    p_current.Cart = p_previous.Cart;
-                    p_current.HasCart = true;
-                    p_current.Cart.HasMoved = true;
-                    if (p_current.GetType() == typeof(SwitchTrackIncoming))
-                    {
-                        SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
-                        if (p_in.TopAvaiable)
-                        {
-                            p_previous.Cart = null;
-                            p_previous.HasCart = false;
-                        }
-                        else
-                        {
-                            p_previous.Cart = null;
-                            p_previous.HasCart = false;
-                        }
-                    }
-                    else if (p_current.GetType() == typeof(SwitchTrackOutgoing))
-                    {
-                        SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
-                        if (p_out.TopAvaiable)
-                        {
-                            p_previous.Cart = null;
-                            p_previous.HasCart = true;
-                        }
-                        else
-                        {
-                            p_previous.Cart = null;
-                            p_previous.HasCart = false;
-                        }
-                    }
-                    else
-                    {
-                        p_previous.HasCart = false;
-                        p_previous.Cart = null;
-                    }
+                       // if (!CheckCollision(p_current, p_previous))
+                       // {
+                            p_current.Cart = p_previous.Cart;
+                            p_current.HasCart = true;
+                            p_current.Cart.HasMoved = true;
+                            if (p_current.GetType() == typeof(SwitchTrackIncoming))
+                            {
+                                SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
+                                if (p_in.TopAvaiable)
+                                {
+                                    p_previous.Cart = null;
+                                    p_previous.HasCart = false;
+                                }
+                                else
+                                {
+                                    p_previous.Cart = null;
+                                    p_previous.HasCart = false;
+                                }
+                            }
+                            else if (p_current.GetType() == typeof(SwitchTrackOutgoing))
+                            {
+                                SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
+                                if (p_out.TopAvaiable)
+                                {
+                                    p_previous.Cart = null;
+                                    p_previous.HasCart = true;
+                                }
+                                else
+                                {
+                                    p_previous.Cart = null;
+                                    p_previous.HasCart = false;
+                                }
+                            }
+                            else
+                            {
+                                p_previous.HasCart = false;
+                                p_previous.Cart = null;
+                            }
+                      //  }
                 }
             }
         }
@@ -482,6 +516,11 @@ namespace Goudkoorts.Domain {
             {
                 startTrackC.SpawnCart();
             }
+        }
+
+        public void SpawnBoat() {
+            northHarbor.AddBoatToBoatTrack();
+            southHarbor.AddBoatToBoatTrack();
         }
 
         // als je van onder komt, kijk of de track verbonden is
@@ -523,58 +562,60 @@ namespace Goudkoorts.Domain {
 
         private void SwitchIncoming(SwitchTrackIncoming p_Track)
         {
-            switch (p_Track.TopAvaiable)
-            {
-                case true:
-                    p_Track.TopAvaiable = false;
-                    p_Track.BottomAvaiable = true;
-                    break;
+            if (!p_Track.HasCart) {
+                switch (p_Track.TopAvaiable) {
+                    case true:
+                        p_Track.TopAvaiable = false;
+                        p_Track.BottomAvaiable = true;
+                        break;
 
-                case false:
-                    p_Track.TopAvaiable = true;
-                    p_Track.BottomAvaiable = false;
-                    break;
+                    case false:
+                        p_Track.TopAvaiable = true;
+                        p_Track.BottomAvaiable = false;
+                        break;
+                }
             }
         }
 
         private void SwitchOutgoing(SwitchTrackOutgoing p_Track)
         {
-            switch (p_Track.TopAvaiable)
-            {
-                case true:
-                    p_Track.TopAvaiable = false;
-                    p_Track.BottomAvaiable = true;
-                    break;
-                case false:
-                    p_Track.TopAvaiable = true;
-                    p_Track.BottomAvaiable = false;
-                    break;
+            if (!p_Track.HasCart) {
+                switch (p_Track.TopAvaiable) {
+                    case true:
+                        p_Track.TopAvaiable = false;
+                        p_Track.BottomAvaiable = true;
+                        break;
+                    case false:
+                        p_Track.TopAvaiable = true;
+                        p_Track.BottomAvaiable = false;
+                        break;
+                }
             }
         }
         public void SwitchTrack(char p_switchChar)
         {
             // de char in de eerste if wordt meegegeven later in de view. Als degene dus op bijv. a klikt dan wordt de A knop de switchA, en dat krijgt als char mee 'A'
             // De een of het ander is altijd avaiable
-
-            switch (p_switchChar)
+            int a = (int)Char.GetNumericValue(p_switchChar);
+            switch (a)
             {
-                case 'A':
+                case 1:
                     SwitchIncoming(switchA);
                     break;
 
-                case 'B':
+                case 2:
                     SwitchOutgoing(switchB);
                     break;
 
-                case 'C':
+                case 3:
                     SwitchIncoming(switchC);
                     break;
 
-                case 'D':
+                case 4:
                     SwitchOutgoing(switchD);
                     break;
 
-                case 'E':
+                case 5:
                     SwitchIncoming(switchE);
                     break;
             }
@@ -705,7 +746,7 @@ namespace Goudkoorts.Domain {
             switchD.NextBottom.Previous = switchD;
             current = switchD.NextBottom;
 
-            for (int g = 0; g < 2; g++) {
+            for (int g = 0; g < 3; g++) {
                 current.Next = new RegularTrack();
                 current.Next.Previous = current;
                 current = current.Next;
@@ -715,7 +756,7 @@ namespace Goudkoorts.Domain {
             southQuay.Previous = current;
             current = southQuay;
 
-            for (int h = 0; h < 4; h++) {
+            for (int h = 0; h < 3; h++) {
                 current.Next = new RegularTrack();
                 current.Next.Previous = current;
                 current = current.Next;
@@ -756,6 +797,13 @@ namespace Goudkoorts.Domain {
 
         public void Score() {
 
+        }
+        private Boolean CheckCollision(Track p_current, Track p_previous) {
+            if (p_current.HasCart && p_previous.HasCart) {
+                Console.WriteLine("GAME OVER");
+                return true;
+            }
+            return false;
         }
     }
 }

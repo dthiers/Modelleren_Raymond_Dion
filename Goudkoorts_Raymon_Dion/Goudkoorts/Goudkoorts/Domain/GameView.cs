@@ -199,7 +199,7 @@ namespace Goudkoorts.Domain {
 
             
             String f = "";
-            for (z = 0; z < 56; z++) {
+            for (z = 0; z < 60; z++) {
                 f += " ";
             }
             f += "|  |";
@@ -272,6 +272,9 @@ namespace Goudkoorts.Domain {
         }
 
         private String DrawQuayTrack(QuayTrack p_current, string side) {
+            if (p_current.HasCart) {
+                return "{^^}";
+            }
             return "{" + side + "}";
         }
     }

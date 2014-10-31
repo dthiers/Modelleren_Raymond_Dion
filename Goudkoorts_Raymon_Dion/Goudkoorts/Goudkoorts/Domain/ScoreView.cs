@@ -13,7 +13,7 @@ namespace Goudkoorts.Domain {
 
        public void MethodeOmTeTekenenHierzooooo() {
            Console.WriteLine("ScoreVIewwwwwwwww");
-           for (int i = 0; i < 4; i++) {
+           for (int i = 0; i < 7; i++) {
                Console.WriteLine();
            }
        }

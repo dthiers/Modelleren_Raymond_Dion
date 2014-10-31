@@ -23,6 +23,7 @@ namespace Goudkoorts.Domain {
             // Kan ik unloaden?
             if ((CurrentBoatTrack.HasShip) && !(CurrentBoatTrack.Ship.IsFull)) {
                 CurrentBoatTrack.Ship.Cargo++;
+                Cart.IsFull = false;
                 // Cart.IsEmpty
                 // Is de boot vol? m.a.w. kan ik 'm undocken
                 if (CurrentBoatTrack.Ship.IsFull) {
