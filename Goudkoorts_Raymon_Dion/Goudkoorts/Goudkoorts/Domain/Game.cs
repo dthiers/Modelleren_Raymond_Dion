@@ -69,7 +69,6 @@ namespace Goudkoorts.Domain {
             if (current.HasCart && !current.Next.HasCart) {
                 SetCartOnSpecificTrack(current.Next, current);
             }
-            //current = current.PreviousTop;
 
             // switchE naar previousTop
             if (CanMoveCartToSwitchIncomingTop(current)) {
@@ -173,6 +172,47 @@ namespace Goudkoorts.Domain {
                 current = current.Previous;
             }
             
+            // LAATSTE STUKJE (onderaan)
+
+            current = lastTrackSouth;
+
+            // einde TrackSouth tot switchD;
+            while (current.GetType() != typeof(SwitchTrackOutgoing))
+            {
+                if (current.Previous.GetType() != typeof(SwitchTrackOutgoing))
+                {
+                    if (CanMoveCartNormal(current))
+                    {
+                        SetCartOnSpecificTrack(current, current.Previous);
+                    }
+                }
+                current = current.Previous;
+            }
+
+            // current = switchD;
+            if (CanMoveCartFromSwitchOutgoingToBottom(current))
+            {
+                SetCartOnSpecificTrack(current.NextBottom, current);
+            }
+
+            current = switchC;
+
+            if (CanMoveCartToSwitchIncomingBottom(current))
+            {
+                SetCartOnSpecificTrack(current, current.PreviousBottom);
+            }
+
+            current = current.PreviousBottom;
+
+            while (current.GetType() != typeof(StartTrack))
+            {
+                if (CanMoveCartNormal(current))
+                {
+                    SetCartOnSpecificTrack(current, current.Previous);
+                }
+                current = current.Previous;
+            }
+
             SetCartsToFalse();
         }
 
@@ -662,6 +702,7 @@ namespace Goudkoorts.Domain {
 
             // switchD tot einde southHarbor
             switchD.NextBottom = new RegularTrack();
+            switchD.NextBottom.Previous = switchD;
             current = switchD.NextBottom;
 
             for (int g = 0; g < 2; g++) {
@@ -689,9 +730,9 @@ namespace Goudkoorts.Domain {
             //switchC.BottomAvaiable = true;
             //switchE.TopAvaiable = true;
             switchC.TopAvaiable = true;
-            switchD.TopAvaiable = true;
+            //switchD.TopAvaiable = true;
             switchE.BottomAvaiable = true;
-            //switchD.BottomAvaiable = true;
+            switchD.BottomAvaiable = true;
         }
 
         public StartTrack GetStartA() {
