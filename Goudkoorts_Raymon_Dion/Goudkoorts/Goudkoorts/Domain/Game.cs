@@ -24,6 +24,8 @@ namespace Goudkoorts.Domain {
         private Track lastTrackNorth;
         private Track lastTrackSouth;
 
+        public Boolean GameOver { get; set; }
+        public int Score { get; set; }
         // TESTEN HIERZO
         //private BoatTrackView btv;
         //private GameView gv;
@@ -59,18 +61,23 @@ namespace Goudkoorts.Domain {
 
             // ROUTE BOVEN
             // VAN EINDE NORTHHARBOR TOT switchE
-            /*
+            
              if (current.Next == null) {
                  current.Cart = null;
                  current.HasCart = false;
              }
-              * */
+              
 
             while (current.GetType() != typeof(SwitchTrackIncoming)) {
                 if (current.Previous.GetType() == typeof(QuayTrack)) {
                     QuayTrack quayN = (QuayTrack)current.Previous;
                     if (quayN.HasDockedBoat && quayN.HasCart) {
                         quayN.UnloadCart();
+                        Score++;
+                        if (AddTenPoints(quayN))
+                        {
+                            Score += 10;
+                        }
                     }
                 }
                 if (CanMoveCartNormal(current)) {
@@ -186,15 +193,12 @@ namespace Goudkoorts.Domain {
             }
             
             // LAATSTE STUKJE (onderaan)
-
             current = lastTrackSouth;
 
-            /*
             if (current.Next == null) {
                 current.Cart = null;
                 current.HasCart = false;
             }
-             * */
 
             // einde TrackSouth tot switchD;
             while (current.GetType() != typeof(SwitchTrackOutgoing))
@@ -203,6 +207,11 @@ namespace Goudkoorts.Domain {
                     QuayTrack quayS = (QuayTrack)current.Previous;
                     if (quayS.HasDockedBoat && quayS.HasCart) {
                         quayS.UnloadCart();
+                        Score++;
+                        if (AddTenPoints(quayS))
+                        {
+                            Score += 10;
+                        }
                     }
                 }
                 if (current.Previous.GetType() != typeof(SwitchTrackOutgoing))
@@ -245,6 +254,18 @@ namespace Goudkoorts.Domain {
         public void MoveBoats() {
             northHarbor.MoveShips();
             southHarbor.MoveShips();
+        }
+
+        private Boolean AddTenPoints(QuayTrack quay)
+        {
+            if (quay.CurrentBoatTrack.Ship != null)
+            {
+                if (quay.CurrentBoatTrack.Ship.Cargo == 8)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private Boolean CanMoveCartNormal(Track p_current) {
@@ -297,7 +318,7 @@ namespace Goudkoorts.Domain {
 
             if (current.PreviousTop.Cart != null)
             {
-                current.PreviousTop.Cart = null;
+                current.PreviousTop.Cart.HasMoved = false;
             }
 
             current = current.PreviousTop;
@@ -442,45 +463,13 @@ namespace Goudkoorts.Domain {
             {
                 if (!p_previous.Cart.HasMoved)
                 {
-                       // if (!CheckCollision(p_current, p_previous))
-                       // {
-                            p_current.Cart = p_previous.Cart;
-                            p_current.HasCart = true;
-                            p_current.Cart.HasMoved = true;
-                            if (p_current.GetType() == typeof(SwitchTrackIncoming))
-                            {
-                                SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
-                                if (p_in.TopAvaiable)
-                                {
-                                    p_previous.Cart = null;
-                                    p_previous.HasCart = false;
-                                }
-                                else
-                                {
-                                    p_previous.Cart = null;
-                                    p_previous.HasCart = false;
-                                }
-                            }
-                            else if (p_current.GetType() == typeof(SwitchTrackOutgoing))
-                            {
-                                SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
-                                if (p_out.TopAvaiable)
-                                {
-                                    p_previous.Cart = null;
-                                    p_previous.HasCart = true;
-                                }
-                                else
-                                {
-                                    p_previous.Cart = null;
-                                    p_previous.HasCart = false;
-                                }
-                            }
-                            else
-                            {
-                                p_previous.HasCart = false;
-                                p_previous.Cart = null;
-                            }
-                      //  }
+                    CheckCollision(p_current, p_previous);
+                    p_current.Cart = p_previous.Cart;
+                    p_current.HasCart = true;
+                    p_current.Cart.HasMoved = true;
+ 
+                    p_previous.HasCart = false;
+                    p_previous.Cart = null;
                 }
             }
         }
@@ -795,15 +784,13 @@ namespace Goudkoorts.Domain {
             return new GameView(this, northQuay, southQuay);
         }
 
-        public void Score() {
-
-        }
-        private Boolean CheckCollision(Track p_current, Track p_previous) {
+        private void CheckCollision(Track p_current, Track p_previous) {
             if (p_current.HasCart && p_previous.HasCart) {
                 Console.WriteLine("GAME OVER");
-                return true;
+                GameOver = true;
             }
-            return false;
+            GameOver = false;
         }
+       
     }
 }

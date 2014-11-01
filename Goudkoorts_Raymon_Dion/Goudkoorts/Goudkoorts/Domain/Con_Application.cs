@@ -41,10 +41,13 @@ namespace Goudkoorts.Domain {
 
             // Controllers
             con_KeyHandler = new Con_KeyHandler(mod_Game);
-            
 
-            Run();
-
+            while (!mod_Game.GameOver)
+            {
+                Run();
+            }
+            Console.Clear();
+            Console.WriteLine("Game Over!");
         }
 
         
