@@ -19,6 +19,7 @@ namespace Goudkoorts.Domain {
         private Timer spawnBoat;
         private Timer spawnCart;
         private Timer drawGame;
+        private Timer checkForCollision;
         private Timer moveCarts;
         private Timer moveBoats;
 
@@ -42,7 +43,15 @@ namespace Goudkoorts.Domain {
             // Controllers
             con_KeyHandler = new Con_KeyHandler(mod_Game);
 
-            while (!mod_Game.GameOver)
+            drawGame = new Timer(1000);
+            drawGame.Elapsed += DrawGame_Elapsed;
+            drawGame.Enabled = true;
+
+            checkForCollision = new Timer(500);
+            checkForCollision.Elapsed += CheckForCollision_Elapsed;
+            checkForCollision.Enabled = true;
+
+            while (drawGame.Enabled)
             {
                 Run();
             }
@@ -52,38 +61,44 @@ namespace Goudkoorts.Domain {
 
         
         public void Run() {
-            drawGame = new Timer(500);
-            drawGame.Elapsed += DrawGame_Elapsed;
-            drawGame.Enabled = true;
+            if (mod_Game.IsGameOver()) {
+                drawGame.Stop();
+            }
+            else {
+                /*
+                spawnCart = new Timer(5000);
+                spawnCart.Elapsed += SpawnCart_Elapsed;
+                spawnCart.Enabled = true;
 
-            /*
-            spawnCart = new Timer(5000);
-            spawnCart.Elapsed += SpawnCart_Elapsed;
-            spawnCart.Enabled = true;
+                // Alle timers aanmaken
+                spawnBoat = new Timer(10000);
+                spawnBoat.Elapsed += BoatTimer_Elapsed;
+                spawnBoat.Enabled = true;
 
-            // Alle timers aanmaken
-            spawnBoat = new Timer(10000);
-            spawnBoat.Elapsed += BoatTimer_Elapsed;
-            spawnBoat.Enabled = true;
+                moveCarts = new Timer(2000);
+                moveCarts.Elapsed += MoveCarts_Elapsed;
+                moveCarts.Enabled = true;
 
-            moveCarts = new Timer(2000);
-            moveCarts.Elapsed += MoveCarts_Elapsed;
-            moveCarts.Enabled = true;
+                moveBoats = new Timer(1000);
+                moveBoats.Elapsed += MoveBoats_Elapsed;
+                moveBoats.Enabled = true;
 
-            moveBoats = new Timer(1000);
-            moveBoats.Elapsed += MoveBoats_Elapsed;
-            moveBoats.Enabled = true;
-
-             * */
-            while (true) {
-                input = Console.ReadKey();
-                x = input.KeyChar;
-                con_KeyHandler.InputHandler(x);
-                applicationView.DrawAll();
+                 * */
+                while (true) {
+                    input = Console.ReadKey();
+                    x = input.KeyChar;
+                    con_KeyHandler.InputHandler(x);
+                    applicationView.DrawAll();
+                }
             }
 
         }
 
+        private void CheckForCollision_Elapsed(object sender, ElapsedEventArgs e) {
+            if (mod_Game.GameOver) {
+                drawGame.Stop();
+            }
+        }
         private void DrawGame_Elapsed(object sender, ElapsedEventArgs e) {
             if (spawnCountBoat > 0) {
                 spawnCountBoat--;

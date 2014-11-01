@@ -12,7 +12,9 @@ namespace Goudkoorts.Domain {
         public Track NextBottom { get; set; }
         public Track PreviousTop { get; set; }
         public Track PreviousBottom { get; set; }
-        public Boolean HasCart { get; set; }
+        public Boolean HasCart {
+            get { return Cart != null;} 
+            set; }
         public Boolean Marker { get; set; }
     }
 }

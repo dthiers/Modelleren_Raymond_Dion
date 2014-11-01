@@ -463,7 +463,7 @@ namespace Goudkoorts.Domain {
             {
                 if (!p_previous.Cart.HasMoved)
                 {
-                    CheckCollision(p_current, p_previous);
+                     CheckCollision(p_current, p_previous);
                     p_current.Cart = p_previous.Cart;
                     p_current.HasCart = true;
                     p_current.Cart.HasMoved = true;
@@ -789,7 +789,10 @@ namespace Goudkoorts.Domain {
                 Console.WriteLine("GAME OVER");
                 GameOver = true;
             }
-            GameOver = false;
+        }
+
+        public Boolean IsGameOver() {
+            return GameOver;
         }
        
     }
