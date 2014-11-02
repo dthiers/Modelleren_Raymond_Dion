@@ -208,7 +208,9 @@ namespace Goudkoorts.Domain {
                 if (p_current.Cart.IsFull) {
                     return "[^^]";
                 }
-                return "[  ]";
+                else if (!p_current.Cart.IsFull) {
+                    return "[  ]";
+                } 
             }
             return "____";
         }

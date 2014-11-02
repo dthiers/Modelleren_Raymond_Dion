@@ -9,17 +9,17 @@ namespace Goudkoorts.Domain {
         public StartTrack() {
         }
 
-        public void PlaceCartOnTrack(Cart cart) {
-            Cart.IsFull = true;
-            this.Next.Cart = cart;
+        public void PlaceCartOnTrack(Cart p_newCart) {
+            this.Next.Cart = p_newCart;
             this.Next.HasCart = true;
+            this.Next.Cart.IsFull = true;
         }
 
         // ik denk dat dit goed is?
         public void SpawnCart()
         {
-            Cart = new Cart();
-            PlaceCartOnTrack(Cart);
+            Cart cartNew = new Cart();
+            PlaceCartOnTrack(cartNew);
         }
     }
 }

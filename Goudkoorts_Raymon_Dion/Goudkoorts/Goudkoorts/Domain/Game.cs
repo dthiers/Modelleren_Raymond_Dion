@@ -516,26 +516,25 @@ namespace Goudkoorts.Domain {
         {
             // de char in de eerste if wordt meegegeven later in de view. Als degene dus op bijv. a klikt dan wordt de A knop de switchA, en dat krijgt als char mee 'A'
             // De een of het ander is altijd avaiable
-            int a = (int)Char.GetNumericValue(p_switchChar);
-            switch (a)
+            switch (p_switchChar)
             {
-                case 1:
+                case '1':
                     SwitchIncoming(switchA);
                     break;
 
-                case 2:
+                case '2':
                     SwitchOutgoing(switchB);
                     break;
 
-                case 3:
+                case '3':
                     SwitchIncoming(switchC);
                     break;
 
-                case 4:
+                case '4':
                     SwitchOutgoing(switchD);
                     break;
 
-                case 5:
+                case '5':
                     SwitchIncoming(switchE);
                     break;
             }
@@ -745,6 +744,11 @@ namespace Goudkoorts.Domain {
                 }
             }
             return collided;
+        }
+
+        public void Restart() {
+            Console.Clear();
+            Console.WriteLine("OPNIEUW");
         }
     }
 }

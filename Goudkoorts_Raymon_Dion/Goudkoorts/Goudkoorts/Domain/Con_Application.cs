@@ -18,9 +18,9 @@ namespace Goudkoorts.Domain {
 
         private Timer drawGame;
 
-        private int spawnCountBoat = 60;
+        private int spawnCountBoat = 240;
         private int spawnCountCart = 16;
-        private int moveCount = 4;
+        private int moveCount = 8;
 
         ConsoleKeyInfo input;
         char x;
@@ -37,9 +37,10 @@ namespace Goudkoorts.Domain {
             applicationView = new ApplicationView(gameView, btv_North, btv_South, scoreView);
 
             // Controllers
-            con_KeyHandler = new Con_KeyHandler(mod_Game);
+            con_KeyHandler = new Con_KeyHandler(mod_Game, this);
 
             drawGame = new Timer(500);
+            drawGame.Elapsed += DrawGame_Elapsed;
             drawGame.Enabled = true;
 
             Run();
@@ -52,7 +53,7 @@ namespace Goudkoorts.Domain {
 
             applicationView.DrawAll();
 
-            drawGame.Elapsed += DrawGame_Elapsed;
+            
 
             while (true) {
                 input = Console.ReadKey();
@@ -62,34 +63,118 @@ namespace Goudkoorts.Domain {
             }
         }
 
+        public void Restart() {
+            // Models
+            mod_Game = new Game();
+
+            // Views
+            gameView = mod_Game.GetGameView();
+            btv_North = mod_Game.GetBoatTrackViewNorth();
+            btv_South = mod_Game.GetBoatTrackViewSouth();
+            scoreView = new ScoreView(mod_Game);
+            applicationView = new ApplicationView(gameView, btv_North, btv_South, scoreView);
+            con_KeyHandler = new Con_KeyHandler(mod_Game, this);
+
+            spawnCountBoat = 240;
+            spawnCountCart = 16;
+            moveCount = 8;
+
+            if (!drawGame.Enabled) {
+                drawGame.Enabled = true;
+            }
+
+            Run();
+        }
+
+        public void Pauze() {
+            if (drawGame.Enabled) {
+                drawGame.Enabled = false;
+                scoreView.Paused = "Game is paused. Press p to resume";
+            }
+            else {
+                drawGame.Enabled = true;
+                scoreView.Paused = " ";
+            }
+        }
+
         private void DrawGame_Elapsed(object sender, ElapsedEventArgs e) {
             if (mod_Game.GameOver) {
                 drawGame.Enabled = false;
                 scoreView.GameOver = "Two carts collided. You are game over!";
             }
-
+            // Spawn boat counter
             if (spawnCountBoat > 0) {
                 spawnCountBoat--;
             }
-            if (spawnCountBoat == 0) {
-                mod_Game.SpawnBoat();
-
-                spawnCountBoat = 5;
+            if (mod_Game.Score < 50) {
+                if (spawnCountBoat == 0) {
+                    mod_Game.SpawnBoat();
+                    spawnCountBoat = 240;
+                }
             }
+            // Spawn cart counter
             if (spawnCountCart > 0) {
                 spawnCountCart--;
             }
-            if (spawnCountCart == 0) {
-                mod_Game.SpawnRandomCart();
-                spawnCountCart = 16;
-            }
+            // Move counter
             if (moveCount > 0) {
                 moveCount--;
             }
-            if (moveCount == 0) {
-                mod_Game.MoveCarts();
-                mod_Game.MoveBoats();
-                moveCount = 4;
+            
+            // Score onder de 20
+            if (mod_Game.Score < 20) {
+                if (spawnCountCart == 0) {
+                    mod_Game.SpawnRandomCart();
+                    spawnCountCart = 32;
+                }
+                if (moveCount == 0) {
+                    mod_Game.MoveCarts();
+                    mod_Game.MoveBoats();
+                    moveCount = 8;
+                }
+            }
+
+                // Score tussen de 20 en 30
+            else if (mod_Game.Score >= 20 && mod_Game.Score < 30) {
+                if (spawnCountCart == 0) {
+                    mod_Game.SpawnRandomCart();
+                    spawnCountCart = 20;
+                }
+                if (moveCount == 0) {
+                    mod_Game.MoveCarts();
+                    mod_Game.MoveBoats();
+                    moveCount = 6;
+                }
+            }
+            
+            // Score tussen de 30 en 50
+            else if (mod_Game.Score >= 30 && mod_Game.Score < 50) {
+                if (spawnCountCart == 0) {
+                    mod_Game.SpawnRandomCart();
+                    spawnCountCart = 10;
+                }
+                if (moveCount == 0) {
+                    mod_Game.MoveCarts();
+                    mod_Game.MoveBoats();
+                    moveCount = 4;
+                }
+            }
+            
+             // Score hoger dan 50
+            else if (mod_Game.Score >= 50) {
+                if (spawnCountCart == 0) {
+                    mod_Game.SpawnRandomCart();
+                    spawnCountCart = 6;
+                }
+                if (moveCount == 0) {
+                    mod_Game.MoveCarts();
+                    mod_Game.MoveBoats();
+                    moveCount = 3;
+                }
+                if (spawnCountBoat == 0) {
+                    mod_Game.SpawnBoat();
+                    spawnCountBoat = 180;
+                }
             }
             applicationView.DrawAll();
         }
