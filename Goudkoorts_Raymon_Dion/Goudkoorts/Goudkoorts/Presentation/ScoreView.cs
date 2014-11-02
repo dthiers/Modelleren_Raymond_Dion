@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Goudkoorts.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Goudkoorts.Domain {
+namespace Goudkoorts.Presentation {
    public class ScoreView {
        public string GameOver { get; set; }
        public string Paused { get; set; }

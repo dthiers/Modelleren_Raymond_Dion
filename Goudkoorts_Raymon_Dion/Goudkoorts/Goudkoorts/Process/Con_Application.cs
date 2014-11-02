@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Goudkoorts.Domain;
+using Goudkoorts.Presentation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Timers;
 
-namespace Goudkoorts.Domain {
+namespace Goudkoorts.Process {
     public class Con_Application {
 
         private GameView gameView;

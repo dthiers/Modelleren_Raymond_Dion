@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Goudkoorts.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Goudkoorts.Domain {
+namespace Goudkoorts.Process {
     public class Con_KeyHandler {
 
         private Game mod_Game;

@@ -89,11 +89,11 @@
       <Property Name="Cart" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Goudkoorts.Program" Collapsed="true">
+  <Class Name="Goudkoorts.Process.Program" Collapsed="true">
     <Position X="15.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
+      <FileName>Process\Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
