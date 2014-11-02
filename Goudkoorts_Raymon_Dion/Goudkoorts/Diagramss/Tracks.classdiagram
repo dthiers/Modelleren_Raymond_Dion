@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="bda4655c-de9a-41b0-864d-d49689fc42b8" name="Tracks" linkedPackageId="b7f90ed1-91dd-4fe0-8196-aa30bd925ffc" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="2d0badac-6680-4920-8807-ed42e118441c">
+      <profileInstance Id="dddf0acb-f321-4b77-bd1b-e901628ef65f" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="6b22d736-e013-4a3e-b30b-01421eba8c19">
+      <profileInstance Id="02b1f595-a31c-48a4-b05d-34eb35be33bc" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="008e7711-206f-4d97-bfb3-800be4a37567" name="Track" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c5c81b61-2dea-485e-b132-cc2a1a93c5f2" />
+        <targetEnds>
+          <association Id="7272d35b-0a69-4c37-bda6-332474950860" isDerived="false" sourceEndRoleName="" targetEndRoleName="Next" isLeaf="false" isAbstract="false">
+            <classMoniker Id="008e7711-206f-4d97-bfb3-800be4a37567" LastKnownName="Track" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="552ca44a-28d7-40fb-a2b1-52059913b3a3" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="88631473-76fc-43c7-8dd5-067e91315197" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c38a4605-4824-4e8a-a02c-241499081777" name="Next" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="5f5beaea-fe64-4cbb-9b4c-f04dea9f9fa5" name="Lower" value="0">
+                      <elementDefinition Id="8dc3ed61-6746-4fb4-8582-d23ae1eec7a2" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8e4b7573-6ef0-4ffb-91b7-d5275f61daa3" name="Upper" value="1">
+                      <elementDefinition Id="eb1eaec8-a392-4ce2-bb4a-98d14ba9d061" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="c91645f0-78d8-48be-aa4f-0e3ad2140633" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3fb28fee-31f8-485b-b52b-0d2ffa7ca04d" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="b7f90ed1-91dd-4fe0-8196-aa30bd925ffc" name="Diagramss">
+    <elementDefinition Id="28eeeb84-c047-4539-bb4e-8c99c08ac027" />
+  </package>
+</logicalClassDesignerModel>

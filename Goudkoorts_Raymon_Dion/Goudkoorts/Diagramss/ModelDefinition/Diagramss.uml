@@ -172,6 +172,68 @@
         </generalsInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c5c81b61-2dea-485e-b132-cc2a1a93c5f2"
+        name="Track"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="3fb28fee-31f8-485b-b52b-0d2ffa7ca04d"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="Next"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c5c81b61-2dea-485e-b132-cc2a1a93c5f2"
+              LastKnownName="Track"
+              LastKnownLocation="Diagramss.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="88631473-76fc-43c7-8dd5-067e91315197"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c91645f0-78d8-48be-aa4f-0e3ad2140633"
+                  name="Next"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8dc3ed61-6746-4fb4-8582-d23ae1eec7a2"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="eb1eaec8-a392-4ce2-bb4a-98d14ba9d061"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

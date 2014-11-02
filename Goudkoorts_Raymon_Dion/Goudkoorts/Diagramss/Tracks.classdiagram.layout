@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Tracks">
+  <logicalClassDesignerModelMoniker Id="bda4655c-de9a-41b0-864d-d49689fc42b8" />
+  <nestedChildShapes>
+    <classShape Id="121c7a10-f4c7-47f0-ad6b-519242e583b1" isExpanded="false" absoluteBounds="4.125, 2.875, 1.5, 0.5" hideQualifiedName="false" increaseHeight="0" customColor="181, 193, 223">
+      <classMoniker Id="008e7711-206f-4d97-bfb3-800be4a37567" LastKnownName="Track" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="1b87b3a7-9f48-4613-bed1-206773ba2239" absoluteBounds="4.14, 3.265, 1.4700000000000002, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="841ce78c-f468-4c0c-a693-b6b413a1f5a6" absoluteBounds="4.14, 3.4761718675494193, 1.4700000000000002, 0.2011718675494194" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.8046875 : 2.875); (4.8046875 : 2.5); (6 : 2.5); (6 : 3.125); (5.625 : 3.125)]" manuallyRouted="true" fixedFrom="Caller" fixedTo="Caller" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="0..1">
+      <associationMoniker Id="7272d35b-0a69-4c37-bda6-332474950860" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="4.9666431806981564, 2.6089409813284874, 0.125, 0.1341145783662796" shapeFieldName="SourceRoleName" />
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="0.50694444403052419, 0.87499999999999845, 0.125, 0.14800345897674561" shapeFieldName="SourceMultiplicity" />
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="5.2731933444738388, 2.3125, 0.26859083771705627, 0.14800345897674561" shapeFieldName="TargetRoleName" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <classShapeMoniker Id="121c7a10-f4c7-47f0-ad6b-519242e583b1" />
+        <classShapeMoniker Id="121c7a10-f4c7-47f0-ad6b-519242e583b1" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>
