@@ -205,13 +205,11 @@ namespace Goudkoorts.Domain {
 
         private String DrawReqularTrack(Track p_current) {
             if (p_current.Cart != null){
-                if (p_current.Cart.IsFull)
-                {
+                if (p_current.Cart.IsFull) {
                     return "[^^]";
                 }
-                else
-                {
-                    return "[  ]";
+                else {
+                return "[  ]";
                 }
             }
             return "____";
