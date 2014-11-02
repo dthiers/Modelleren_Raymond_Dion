@@ -48,7 +48,7 @@ namespace Goudkoorts.Domain {
                 }
                 
             }
-            Console.WriteLine();
+            //Console.WriteLine();
         }
 
     }

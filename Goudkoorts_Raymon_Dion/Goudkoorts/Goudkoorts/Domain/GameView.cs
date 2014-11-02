@@ -181,24 +181,24 @@ namespace Goudkoorts.Domain {
             }
 
 
-            for (z = 0; z < 8; z++) {
+            for (z = 0; z < 12; z++) {
                 a += " ";
             }
             a += "|  |"; 
 
             
             String f = "";
-            for (z = 0; z < 60; z++) {
+            for (z = 0; z < 64; z++) {
                 f += " ";
             }
             f += "|  |";
 
             // PRINT THE BITCH
             Console.WriteLine(a);
-            Console.WriteLine(b);
+            Console.Write(b);
             Console.WriteLine(c);
             Console.WriteLine(d);
-            Console.WriteLine(e);
+            Console.Write(e);
             Console.WriteLine(f);
         }
 
