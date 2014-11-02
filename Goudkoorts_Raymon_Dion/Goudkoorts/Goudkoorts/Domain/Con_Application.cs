@@ -19,7 +19,7 @@ namespace Goudkoorts.Domain {
         private Timer drawGame;
 
         private int spawnCountBoat = 240;
-        private int spawnCountCart = 16;
+        private int spawnCountCart = 26;
         private int moveCount = 8;
 
         ConsoleKeyInfo input;
@@ -125,7 +125,7 @@ namespace Goudkoorts.Domain {
             if (mod_Game.Score < 20) {
                 if (spawnCountCart == 0) {
                     mod_Game.SpawnRandomCart();
-                    spawnCountCart = 32;
+                    spawnCountCart = 26;
                 }
                 if (moveCount == 0) {
                     mod_Game.MoveCarts();
