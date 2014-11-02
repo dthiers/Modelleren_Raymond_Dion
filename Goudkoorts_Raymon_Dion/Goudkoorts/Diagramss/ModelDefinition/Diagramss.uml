@@ -332,7 +332,7 @@
                     <literalString
                       Id="3d91fa2b-eb03-4c1e-bb42-0152cecb636b"
                       name="Lower"
-                      value="0" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
@@ -383,7 +383,7 @@
                     <literalString
                       Id="8c8ada5f-4c06-4d2a-9b1c-c3c04e5841db"
                       name="Lower"
-                      value="0" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
@@ -434,7 +434,7 @@
                     <literalString
                       Id="a89cf6cb-5784-456e-b82e-34a8fb089c25"
                       name="Lower"
-                      value="0" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
@@ -485,11 +485,124 @@
                     <literalString
                       Id="e191729c-c4ba-4dcf-99bd-e36883ce695a"
                       name="Lower"
-                      value="0" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
                       Id="57f6bf06-8112-4be8-9507-c682e4daf18a"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c1e544a7-40c2-4634-9398-c8bc8cb1687a"
+        name="BoatTrack"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="ffb1bd6f-f3d8-4d85-ad66-d7ec028c410b"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="Next"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c1e544a7-40c2-4634-9398-c8bc8cb1687a"
+              LastKnownName="BoatTrack"
+              LastKnownLocation="Diagramss.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c01b0324-c443-4d2e-aeb0-dea2e33fc113"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4e6d142c-fbb9-4dd3-b5d3-faa7aa68ba8b"
+                  name="Next"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="f7a3f972-2965-49f2-be23-ba9e5c5de14f"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a44e4234-c86a-45fa-a654-949bbfa9d12d"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="2cc9e296-894f-4bfb-bed1-4096a5f69d6d"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="Previous"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c1e544a7-40c2-4634-9398-c8bc8cb1687a"
+              LastKnownName="BoatTrack"
+              LastKnownLocation="Diagramss.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="95decca6-dfc9-43ac-a739-cf84b67d15ea"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="db591c7d-a288-48c3-ae09-26809979009c"
+                  name="Previous"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="30a08f4e-7262-4d50-80ac-4057c607bd80"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="ab0685a9-e822-42f4-9bff-1403dfc3b794"
                       name="Upper"
                       value="1" />
                   </upperValueInternal>
