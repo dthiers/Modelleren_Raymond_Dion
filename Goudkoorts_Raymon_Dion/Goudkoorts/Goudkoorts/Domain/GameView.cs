@@ -208,9 +208,9 @@ namespace Goudkoorts.Domain {
                 if (p_current.Cart.IsFull) {
                     return "[^^]";
                 }
-                else if (!p_current.Cart.IsFull) {
-                    return "[  ]";
-                } 
+                else
+                {
+                return "[  ]";
             }
             return "____";
         }
@@ -263,8 +263,12 @@ namespace Goudkoorts.Domain {
         }
 
         private String DrawQuayTrack(QuayTrack p_current, string side) {
-            if (p_current.HasCart) {
+            if (p_current.HasCart && p_current.Cart.IsFull) {
                 return "{^^}";
+            }
+            else if(p_current.HasCart && !p_current.Cart.IsFull)
+            {
+                return "{  }";
             }
             return "{" + side + "}";
         }
