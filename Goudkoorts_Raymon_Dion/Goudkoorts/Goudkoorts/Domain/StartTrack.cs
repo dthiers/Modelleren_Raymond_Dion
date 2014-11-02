@@ -10,7 +10,7 @@ namespace Goudkoorts.Domain {
         }
 
         public void PlaceCartOnTrack(Cart cart) {
-            Cart.IsFull = true;
+            cart.IsFull = true;
             this.Next.Cart = cart;
             this.Next.HasCart = true;
         }

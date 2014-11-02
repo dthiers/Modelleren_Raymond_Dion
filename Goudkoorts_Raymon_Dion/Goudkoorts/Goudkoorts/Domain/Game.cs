@@ -204,7 +204,7 @@ namespace Goudkoorts.Domain {
             {
                 if (current.Previous.GetType() == typeof(QuayTrack)) {
                     QuayTrack quayS = (QuayTrack)current.Previous;
-                    if (quayS.HasDockedBoat && quayS.HasCart) {
+                    if (quayS.HasDockedBoat && quayS.HasCart && quayS.Cart.IsFull) {
                         quayS.UnloadCart();
                         Score++;
                         if (AddTenPoints(quayS))
@@ -379,6 +379,9 @@ namespace Goudkoorts.Domain {
                 HasCollided(current);
                 current = current.Next;
             }
+
+            startTrackA.HasCart = false;
+            startTrackC.HasCart = false;
         }
 
         /// <summary>

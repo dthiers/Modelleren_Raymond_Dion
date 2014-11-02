@@ -5,10 +5,10 @@
     <AssociationLine Name="NextBoatTrack" Type="Goudkoorts.Domain.BoatTrack" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="7.938" Y="0.5" />
-        <Point X="7.938" Y="0.125" />
-        <Point X="8.625" Y="0.125" />
-        <Point X="8.625" Y="0.875" />
-        <Point X="8.25" Y="0.875" />
+        <Point X="7.938" Y="0.26" />
+        <Point X="8.49" Y="0.26" />
+        <Point X="8.49" Y="0.832" />
+        <Point X="8.25" Y="0.832" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -17,6 +17,7 @@
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="NextBoatTrack" />
+      <Property Name="Ship" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Goudkoorts.Domain.Cart">
@@ -29,7 +30,7 @@
   <Class Name="Goudkoorts.Domain.Game">
     <Position X="17" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AyAAAQAEQTJAACAYIQAAAAICAAAQAEgAGwQAKAAAaJk=</HashCode>
+      <HashCode>AyACgQAEQTJAACgYIQIAAAoCAAAQAEgICwQBKCAAaBk=</HashCode>
       <FileName>Domain\Game.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -43,7 +44,7 @@
   <Class Name="Goudkoorts.Domain.QuayTrack">
     <Position X="6.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAAAIAEQAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Domain\QuayTrack.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -60,28 +61,28 @@
   <Class Name="Goudkoorts.Domain.StartTrack">
     <Position X="11" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAESAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAA=</HashCode>
       <FileName>Domain\StartTrack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Domain.SwitchTrackIncoming">
     <Position X="13.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAkQAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAQAAAAgAAA=</HashCode>
       <FileName>Domain\SwitchTrackIncoming.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Domain.SwitchTrackOutgoing">
     <Position X="8.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAkQAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAQAAAAgAAA=</HashCode>
       <FileName>Domain\SwitchTrackOutgoing.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Goudkoorts.Domain.Track">
     <Position X="9.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAEAAAAAAAgAAAAQAAAAQCAQAAAAAAAAIAAAEQAA=</HashCode>
+      <HashCode>AgAAAEAAAAAAAgAAAAQAAQAQCAQAAAAACAAIAAAAAAA=</HashCode>
       <FileName>Domain\Track.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

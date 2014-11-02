@@ -205,14 +205,18 @@ namespace Goudkoorts.Domain {
 
         private String DrawReqularTrack(Track p_current) {
             if (p_current.Cart != null){
-                if (p_current.Cart.IsFull) {
+                if (p_current.Cart.IsFull)
+                {
                     return "[^^]";
                 }
-                return "[  ]";
+                else
+                {
+                    return "[  ]";
+                }
             }
             return "____";
         }
-
+            
         private String DrawSwitchIncomingTop(SwitchTrackIncoming p_current) {
             if (game.CanSwitchInFromTop(p_current)) {
                 if (p_current.Cart != null) {
@@ -261,8 +265,12 @@ namespace Goudkoorts.Domain {
         }
 
         private String DrawQuayTrack(QuayTrack p_current, string side) {
-            if (p_current.HasCart) {
+            if (p_current.HasCart && p_current.Cart.IsFull) {
                 return "{^^}";
+            }
+            else if(p_current.HasCart && !p_current.Cart.IsFull)
+            {
+                return "{  }";
             }
             return "{" + side + "}";
         }
