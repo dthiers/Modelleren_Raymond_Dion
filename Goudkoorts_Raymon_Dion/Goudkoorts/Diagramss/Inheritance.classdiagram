@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="b52768b3-7f7f-479f-8128-582cac1667fc" name="UMLClassDiagram2" linkedPackageId="c08ea6c0-d968-40f0-9af5-c5b900e1e3f2" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="3629dd6f-990a-4490-b910-57b31d5796d6">
+      <profileInstance Id="17839378-1a2a-4e33-b521-f93a6b53cc2a" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="826c21ab-69e0-4f4c-86a9-05bc311d34e6">
+      <profileInstance Id="c8f18877-e455-4868-9ad3-40074ab3fb30" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c7570ff4-f8e9-4751-838e-b63760a11e0d" name="RegularTrack" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9a628ea9-8a68-4859-a0b1-f217aeb0b42a" />
+        <generalsInternal>
+          <generalization Id="fcb9868f-d70b-4ced-969d-9eca8d2ba422" isSubstitutable="false">
+            <classMoniker Id="3012aa04-50ff-4d66-94fd-a1d188c46870" LastKnownName="Track" />
+            <elementDefinition Id="5fef5b10-2ed2-4502-9a48-ef0d9e3b6446" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="bbb19bc2-70f1-4eed-8a8d-c73b0c956eba" name="QuayTrack" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="08f88a4a-3f54-4083-b1dc-ef60e95d1004" />
+        <generalsInternal>
+          <generalization Id="d7c82e66-1448-47e1-8477-d09ff656f31b" isSubstitutable="false">
+            <classMoniker Id="3012aa04-50ff-4d66-94fd-a1d188c46870" LastKnownName="Track" />
+            <elementDefinition Id="26e1ce1e-d3c8-4553-98da-396ed1bc121e" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="928b1c1d-7a7e-4f60-8ec9-78cec791324f" name="SwitchTrackIncoming" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="048fbd6b-1e5e-42c7-9adc-90afe446930c" />
+        <generalsInternal>
+          <generalization Id="80938792-237c-4ac3-bd07-ef1e29dee7be" isSubstitutable="false">
+            <classMoniker Id="ce81c258-d21b-4b60-b039-1cb60545123f" LastKnownName="SwitchTrack" />
+            <elementDefinition Id="fc2da4fe-a153-4e97-b731-7a2733ecacd8" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="50c24a81-a43f-4450-9740-2419d38dfbcf" name="SwitchTrackOutgoing" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="cb170891-6f4f-4efd-a547-a5aac315dea5" />
+        <generalsInternal>
+          <generalization Id="42f52194-7770-4b89-9969-2b6501438a94" isSubstitutable="false">
+            <classMoniker Id="ce81c258-d21b-4b60-b039-1cb60545123f" LastKnownName="SwitchTrack" />
+            <elementDefinition Id="ffc054e9-2d3b-4442-8934-d0511d7e0511" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f8fad468-f831-4c01-9983-53878f41bc6e" name="StartTrack" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d6cc5c13-1847-43d6-85d1-71264965ea7b" />
+        <generalsInternal>
+          <generalization Id="52dc5d92-2f68-4eb0-9de1-fdbf527d3397" isSubstitutable="false">
+            <classMoniker Id="3012aa04-50ff-4d66-94fd-a1d188c46870" LastKnownName="Track" />
+            <elementDefinition Id="a996a433-723a-4004-aced-b68efe67b164" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="3012aa04-50ff-4d66-94fd-a1d188c46870" name="Track" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0fbde934-803b-4b35-8cc3-bdcec51862a9" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ce81c258-d21b-4b60-b039-1cb60545123f" name="SwitchTrack" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e0d09c07-68f3-4976-92d0-78e319074ef2" />
+        <generalsInternal>
+          <generalization Id="d89ec585-f3c4-41ed-9d49-f5c279314334" isSubstitutable="false">
+            <classMoniker Id="3012aa04-50ff-4d66-94fd-a1d188c46870" LastKnownName="Track" />
+            <elementDefinition Id="5fbec4f8-0caa-411b-bd74-b5b2cb0127a4" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="c08ea6c0-d968-40f0-9af5-c5b900e1e3f2" name="Diagramss">
+    <elementDefinition Id="28eeeb84-c047-4539-bb4e-8c99c08ac027" />
+  </package>
+</logicalClassDesignerModel>

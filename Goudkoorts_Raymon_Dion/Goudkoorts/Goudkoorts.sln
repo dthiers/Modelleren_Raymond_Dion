@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goudkoorts", "Goudkoorts\Goudkoorts.csproj", "{AF0A3A87-FE92-4F9C-A071-89FEC997CEAB}"
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Diagramss", "Diagramss\Diagramss.modelproj", "{A55FFBC6-1129-4555-A2B8-657AB1F7162F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AF0A3A87-FE92-4F9C-A071-89FEC997CEAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF0A3A87-FE92-4F9C-A071-89FEC997CEAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF0A3A87-FE92-4F9C-A071-89FEC997CEAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A55FFBC6-1129-4555-A2B8-657AB1F7162F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A55FFBC6-1129-4555-A2B8-657AB1F7162F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A55FFBC6-1129-4555-A2B8-657AB1F7162F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A55FFBC6-1129-4555-A2B8-657AB1F7162F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

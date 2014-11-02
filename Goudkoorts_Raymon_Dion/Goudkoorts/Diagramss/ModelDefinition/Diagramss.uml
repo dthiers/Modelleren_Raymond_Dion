@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="28eeeb84-c047-4539-bb4e-8c99c08ac027"
+  name="Diagramss" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="432d32ab-5638-4c2c-8811-13867a19c5b3">
+      <body>View =	GameView
+	BoatView
+	ScoreView
+	ApplicationView</body>
+    </comment>
+    <comment
+      Id="d8451678-56c4-4ff0-95df-9306185831a5">
+      <body>Controller = ApplicationController 
+	    KeyHandlerController</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="7d4dfd8f-4679-4068-9081-58ca1020e5de"
+        LastKnownName="Domain"
+        LastKnownLocation="Package_1237.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="7fe957ec-d7c7-4f1c-8784-ed2c1af4440e"
+        LastKnownName="Process"
+        LastKnownLocation="Package_1246.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="b0b3efa5-fcea-434f-8d85-3df4c603b6d1"
+        LastKnownName="Presentation"
+        LastKnownLocation="Package_1249.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9a628ea9-8a68-4859-a0b1-f217aeb0b42a"
+        name="RegularTrack"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="5fef5b10-2ed2-4502-9a48-ef0d9e3b6446"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0fbde934-803b-4b35-8cc3-bdcec51862a9"
+              LastKnownName="Track"
+              LastKnownLocation="Diagramss.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="08f88a4a-3f54-4083-b1dc-ef60e95d1004"
+        name="QuayTrack"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="26e1ce1e-d3c8-4553-98da-396ed1bc121e"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0fbde934-803b-4b35-8cc3-bdcec51862a9"
+              LastKnownName="Track"
+              LastKnownLocation="Diagramss.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="048fbd6b-1e5e-42c7-9adc-90afe446930c"
+        name="SwitchTrackIncoming"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="fc2da4fe-a153-4e97-b731-7a2733ecacd8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="e0d09c07-68f3-4976-92d0-78e319074ef2"
+              LastKnownName="SwitchTrack"
+              LastKnownLocation="Diagramss.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="cb170891-6f4f-4efd-a547-a5aac315dea5"
+        name="SwitchTrackOutgoing"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="ffc054e9-2d3b-4442-8934-d0511d7e0511"
+            isSubstitutable="false">
+            <classMoniker
+              Id="e0d09c07-68f3-4976-92d0-78e319074ef2"
+              LastKnownName="SwitchTrack"
+              LastKnownLocation="Diagramss.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d6cc5c13-1847-43d6-85d1-71264965ea7b"
+        name="StartTrack"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="a996a433-723a-4004-aced-b68efe67b164"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0fbde934-803b-4b35-8cc3-bdcec51862a9"
+              LastKnownName="Track"
+              LastKnownLocation="Diagramss.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0fbde934-803b-4b35-8cc3-bdcec51862a9"
+        name="Track"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e0d09c07-68f3-4976-92d0-78e319074ef2"
+        name="SwitchTrack"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="5fbec4f8-0caa-411b-bd74-b5b2cb0127a4"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0fbde934-803b-4b35-8cc3-bdcec51862a9"
+              LastKnownName="Track"
+              LastKnownLocation="Diagramss.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

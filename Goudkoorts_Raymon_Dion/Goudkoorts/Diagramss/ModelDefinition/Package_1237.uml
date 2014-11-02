@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="7d4dfd8f-4679-4068-9081-58ca1020e5de"
+  name="Domain" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <suppliersInternal>
+    <dependency
+      Id="a551efa5-41a7-4aba-9e5d-ab15de105e18">
+      <packageMoniker
+        Id="7fe957ec-d7c7-4f1c-8784-ed2c1af4440e"
+        LastKnownName="Process"
+        LastKnownLocation="Package_1246.uml" />
+    </dependency>
+    <dependency
+      Id="bf3b61ac-2eef-4ab2-828e-2108d1bfbfef">
+      <classMoniker
+        Id="d7f10fb2-b6b4-4276-967d-ce680c99e3cd"
+        LastKnownName="View"
+        LastKnownLocation="Package_1249.uml" />
+    </dependency>
+  </suppliersInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="8a539b68-3d4a-464f-9d81-e542c55d910b"
+        name="Track"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5b65f12d-0f61-46d6-a15e-21e5444caaa4"
+        name="Cart"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b6758ab1-1e6a-4b88-86f4-4a7a8a9039d1"
+        name="Ship"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3fe964ec-6693-4217-81c7-d405fbdef045"
+        name="Harbor"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="dd19ceb1-8fa2-42be-95b9-66e1fb70157b"
+        name="BoatTrack"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
