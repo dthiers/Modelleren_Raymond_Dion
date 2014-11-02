@@ -14,20 +14,6 @@
 	    KeyHandlerController</body>
     </comment>
   </ownedCommentsInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="4506b12f-8616-4043-a0fd-271b51a94388">
-      <profileInstance Id="0938944b-8fd0-4377-8085-c951b8d04f4d" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="7461fce1-35b2-46d7-ab54-402bb9c5b2fe">
-      <profileInstance Id="9bbf0d11-a850-46e2-be14-64882eda8d63" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasPackages>
       <package Id="0bb9dfc6-3650-4c9e-a2b7-b9452ede1401" name="Domain">
@@ -119,5 +105,19 @@
   </packagedElements>
   <package Id="02d8fe85-7c6d-40bf-ad08-4501a7228882" name="Diagramss">
     <elementDefinition Id="28eeeb84-c047-4539-bb4e-8c99c08ac027" />
+    <profileInstances>
+      <packageHasProfileInstances Id="4506b12f-8616-4043-a0fd-271b51a94388">
+        <profileInstance Id="0938944b-8fd0-4377-8085-c951b8d04f4d" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="7461fce1-35b2-46d7-ab54-402bb9c5b2fe">
+        <profileInstance Id="9bbf0d11-a850-46e2-be14-64882eda8d63" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

@@ -231,6 +231,272 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="717328c3-b93a-450e-8011-277044654457"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="Previous"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c5c81b61-2dea-485e-b132-cc2a1a93c5f2"
+              LastKnownName="Track"
+              LastKnownLocation="Diagramss.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f760e8bc-53f4-4d5d-a07e-b93c3113abe8"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e629e9e3-ecde-44fb-be4b-a10f8b0267ad"
+                  name="Previous"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4411ed22-f3dd-4a04-8799-28e6b279cf34"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="4bf4b243-2dfe-4c7d-b3b5-d97e42da2b43"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9eab33c9-bdb1-4fbb-b2e1-0acbbe18a435"
+        name="SwitchTrack"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="78ee6211-e385-4551-912e-fed8b8c69640"
+            isDerived="false"
+            sourceEndRoleName="NextTop"
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9eab33c9-bdb1-4fbb-b2e1-0acbbe18a435"
+              LastKnownName="SwitchTrack"
+              LastKnownLocation="Diagramss.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c189eab-d4af-4932-a971-89fbe533a28f"
+                  name="NextTop"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="949c3258-236b-4154-a2c6-ad0e4ec2e851"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="3d91fa2b-eb03-4c1e-bb42-0152cecb636b"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="bc9d753f-5efa-4875-ab9e-f68c5946f248"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="43515545-9db2-49ff-8ee1-687fcd9a026b"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="NextBottom"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9eab33c9-bdb1-4fbb-b2e1-0acbbe18a435"
+              LastKnownName="SwitchTrack"
+              LastKnownLocation="Diagramss.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d9a8b42d-148a-4d16-a69b-7a2938069702"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4a3680ad-f4de-4aaa-878c-d7fd5662a84e"
+                  name="NextBottom"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8c8ada5f-4c06-4d2a-9b1c-c3c04e5841db"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a957f861-fae7-4fd5-937a-85f0044dcb84"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9c5c863a-2582-4e45-a7a8-13141c6f46a3"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="PreviousBottom"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9eab33c9-bdb1-4fbb-b2e1-0acbbe18a435"
+              LastKnownName="SwitchTrack"
+              LastKnownLocation="Diagramss.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a2a25e09-1fdb-42d4-8099-146c1f8bf4ad"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="673bd08d-9986-4b58-9046-a7f6401ac00d"
+                  name="PreviousBottom"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="a89cf6cb-5784-456e-b82e-34a8fb089c25"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0b409a95-d2b4-405b-926b-2f63e540d1bc"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="0a0cc532-f69b-42b3-84fb-a8a2d819cad5"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="PreviousTop"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="9eab33c9-bdb1-4fbb-b2e1-0acbbe18a435"
+              LastKnownName="SwitchTrack"
+              LastKnownLocation="Diagramss.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a69f2336-1b16-426f-9826-41cff8b25874"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f5d117bb-c4dd-4eae-8243-fca0935e54c4"
+                  name="PreviousTop"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="e191729c-c4ba-4dcf-99bd-e36883ce695a"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="57f6bf06-8112-4be8-9507-c682e4daf18a"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </class>
     </packageHasNamedElement>
