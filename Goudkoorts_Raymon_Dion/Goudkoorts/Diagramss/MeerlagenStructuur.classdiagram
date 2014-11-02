@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="88314489-e927-4c90-96e0-ad47652832a6" name="UMLClassDiagram1" linkedPackageId="02d8fe85-7c6d-40bf-ad08-4501a7228882" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="ba47f069-dd1d-45fe-afb6-50e8e0baa8ed">
+      <elementDefinition Id="432d32ab-5638-4c2c-8811-13867a19c5b3" />
+      <body>View =	GameView
+	BoatView
+	ScoreView
+	ApplicationView</body>
+    </comment>
+    <comment Id="95cdf0cb-96b1-4f05-a131-63ac734bfd9c">
+      <elementDefinition Id="d8451678-56c4-4ff0-95df-9306185831a5" />
+      <body>Controller = ApplicationController 
+	    KeyHandlerController</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="4506b12f-8616-4043-a0fd-271b51a94388">
+      <profileInstance Id="0938944b-8fd0-4377-8085-c951b8d04f4d" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="7461fce1-35b2-46d7-ab54-402bb9c5b2fe">
+      <profileInstance Id="9bbf0d11-a850-46e2-be14-64882eda8d63" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="0bb9dfc6-3650-4c9e-a2b7-b9452ede1401" name="Domain">
+        <elementDefinition Id="7d4dfd8f-4679-4068-9081-58ca1020e5de" />
+        <suppliersInternal>
+          <dependency Id="35c652f0-e638-4003-95a9-196ff536f8be">
+            <packageMoniker Id="c2622cbc-2cb0-4787-877a-6d1696195eb7" LastKnownName="Process" />
+            <elementDefinition Id="a551efa5-41a7-4aba-9e5d-ab15de105e18" />
+          </dependency>
+          <dependency Id="63cfed2e-0d33-4499-9a42-f9274a3a3bcc">
+            <classMoniker Id="22b9f386-db57-4944-8412-d643f9a6b1a8" LastKnownName="View" />
+            <elementDefinition Id="bf3b61ac-2eef-4ab2-828e-2108d1bfbfef" />
+          </dependency>
+        </suppliersInternal>
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="aacbd2bd-1667-4ae9-a928-7fa072db1e6b" name="Track" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="8a539b68-3d4a-464f-9d81-e542c55d910b" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="7bf25598-c6cf-4603-a49c-9f9c01a79f9f" name="Cart" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="5b65f12d-0f61-46d6-a15e-21e5444caaa4" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="c58f0089-d1d3-4e90-95e2-a0080fcbc1f5" name="Ship" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="b6758ab1-1e6a-4b88-86f4-4a7a8a9039d1" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="0b78cb32-d96c-4a91-b23a-77f7dd98ff65" name="Harbor" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="3fe964ec-6693-4217-81c7-d405fbdef045" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="a15f0b96-c14a-4766-aed9-903d199f0579" name="BoatTrack" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="dd19ceb1-8fa2-42be-95b9-66e1fb70157b" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="c2622cbc-2cb0-4787-877a-6d1696195eb7" name="Process">
+        <elementDefinition Id="7fe957ec-d7c7-4f1c-8784-ed2c1af4440e" />
+        <suppliersInternal>
+          <dependency Id="50f5df0d-6587-42e0-89e3-4ebaa631cc9b">
+            <packageMoniker Id="0bb9dfc6-3650-4c9e-a2b7-b9452ede1401" LastKnownName="Domain" />
+            <elementDefinition Id="3ff19ce0-6ed8-4173-95e9-d7f7eed77c64" />
+          </dependency>
+          <dependency Id="5a8013e6-d6b4-4369-bec0-c9eb60a08d42">
+            <packageMoniker Id="032bfc8c-555a-44c8-81b9-075b4c41452f" LastKnownName="Presentation" />
+            <elementDefinition Id="837c0def-8aa7-4563-b42b-a20345df4561" />
+          </dependency>
+        </suppliersInternal>
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="765fb763-bcc2-488f-9cb4-2bfbc8ea737c" name="Program" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="b4b79ea5-62e4-48e4-92d8-2f2683024395" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="ff0d83d0-aae4-49e5-9a77-fd2a5224b7de" name="Controller" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="187ee930-86d0-4cef-9f6f-a0e8e8134886" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="032bfc8c-555a-44c8-81b9-075b4c41452f" name="Presentation">
+        <elementDefinition Id="b0b3efa5-fcea-434f-8d85-3df4c603b6d1" />
+        <suppliersInternal>
+          <dependency Id="dfa40d79-034f-47e2-9321-4da2e0fbbd5b">
+            <packageMoniker Id="c2622cbc-2cb0-4787-877a-6d1696195eb7" LastKnownName="Process" />
+            <elementDefinition Id="89f4da67-a0fc-4454-95e7-38dba27cec69" />
+          </dependency>
+        </suppliersInternal>
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="22b9f386-db57-4944-8412-d643f9a6b1a8" name="View" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="d7f10fb2-b6b4-4276-967d-ce680c99e3cd" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="02d8fe85-7c6d-40bf-ad08-4501a7228882" name="Diagramss">
+    <elementDefinition Id="28eeeb84-c047-4539-bb4e-8c99c08ac027" />
+  </package>
+</logicalClassDesignerModel>

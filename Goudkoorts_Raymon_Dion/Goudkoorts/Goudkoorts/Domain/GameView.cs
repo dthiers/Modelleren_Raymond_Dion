@@ -209,7 +209,7 @@ namespace Goudkoorts.Domain {
                     return "[^^]";
                 }
                 else {
-                    return "[  ]";
+                return "[  ]";
                 }
             }
             return "____";

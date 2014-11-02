@@ -4,9 +4,33 @@ using System.Linq;
 using System.Text;
 
 namespace Goudkoorts.Domain {
-    public class SwitchTrackOutgoing : Track {
-        public Boolean CartHasMovedIn { get; set; }
-        public Boolean TopAvaiable { get; set; }
-        public Boolean BottomAvaiable { get; set; }
+    public class SwitchTrackOutgoing : SwitchTrack {
+        public override void SetCartOnThisTrack(Track p_current, Track p_previous)
+        {
+            if (p_previous.Cart != null)
+            {
+                if (!p_previous.Cart.HasMoved)
+                {
+                    p_current.Cart = p_previous.Cart;
+                    p_current.HasCart = true;
+                    p_current.Cart.HasMoved = true;
+
+                    p_previous.HasCart = false;
+                    p_previous.Cart = null;
+                }
+            }
+        }
+
+        public override void SetTopAvailable()
+        {
+            TopAvaiable = true;
+            BottomAvaiable = false;
+        }
+
+        public override void SetBottomAvailable()
+        {
+            TopAvaiable = false;
+            BottomAvaiable = true;
+        }
     }
 }
