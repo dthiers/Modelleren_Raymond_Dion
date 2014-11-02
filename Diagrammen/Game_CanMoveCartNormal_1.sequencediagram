@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" dslVersion="1.0.0.0" Id="ce231660-cf19-4a3a-8009-d293bf08e9cf" name="Game_CanMoveCartNormal" mode="DotNet" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="b17a09d2-227e-46b9-ad17-9175148f83ec" name="Game_CanMoveCartNormal" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification Id="9c2f25fe-5732-4f3f-84c4-5e4e697321d8" name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker Id="e652ee6b-0142-4b83-81a7-98297ff2c120" LastKnownName="this : Game" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="8b5041a6-e4c7-41cd-98e0-e6f3d546a07e" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="70b6574e-8032-4f85-bf6f-d192ac1ff469" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="757ece26-49e3-4c49-ac06-23fb35315ef3" LastKnownName="MessageOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="f1884f28-00eb-4773-a548-51537194e0ad" LastKnownName="OperandOccurrenceSpecification" />
+              <messageOccurrenceSpecificationMoniker Id="d8d02df0-8b26-4a5b-9838-44b4a3abe379" LastKnownName="MessageOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="c1554301-1d92-438f-b83c-3a2b273986ab" LastKnownName="OperandOccurrenceSpecification" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="70b6574e-8032-4f85-bf6f-d192ac1ff469" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="33e41afb-bc9e-429b-a8dd-60c552bd4e9d" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="e652ee6b-0142-4b83-81a7-98297ff2c120" LastKnownName="this : Game" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <lostFoundTarget Id="d3a7649b-fc84-4e41-b022-c8d4d69afa47" name="LostFoundTarget" />
+          <messageOccurrenceSpecification Id="757ece26-49e3-4c49-ac06-23fb35315ef3" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="e652ee6b-0142-4b83-81a7-98297ff2c120" LastKnownName="this : Game" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <combinedFragment Id="a5649eed-dc3c-4597-b418-c72fc733c72f" name="CombinedFragment1" interactionOperator="Opt" customInteractionOperator="If">
+            <coveredLifelines>
+              <lifelineMoniker Id="e652ee6b-0142-4b83-81a7-98297ff2c120" LastKnownName="this : Game" />
+            </coveredLifelines>
+            <operands>
+              <interactionOperand Id="6c8de2f0-0aea-470c-bbcd-3022fc457b4a" name="InteractionOperand1">
+                <coveredLifelines>
+                  <lifelineMoniker Id="e652ee6b-0142-4b83-81a7-98297ff2c120" LastKnownName="this : Game" />
+                </coveredLifelines>
+                <guard>
+                  <interactionConstraint Id="8d19bf4b-0c36-4c98-811d-80ab6682ce7e" guardText="if (!p_current.HasCart &amp;&amp; p_current.Previous.HasCart)" />
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker Id="f1884f28-00eb-4773-a548-51537194e0ad" LastKnownName="OperandOccurrenceSpecification" />
+                  <operandOccurrenceSpecificationMoniker Id="c1554301-1d92-438f-b83c-3a2b273986ab" LastKnownName="OperandOccurrenceSpecification" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+            </operands>
+          </combinedFragment>
+          <operandOccurrenceSpecification Id="f1884f28-00eb-4773-a548-51537194e0ad" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="e652ee6b-0142-4b83-81a7-98297ff2c120" LastKnownName="this : Game" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="d8d02df0-8b26-4a5b-9838-44b4a3abe379" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="e652ee6b-0142-4b83-81a7-98297ff2c120" LastKnownName="this : Game" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <lostFoundTarget Id="a225c038-1060-4d0f-80ae-11e7f5119701" name="LostFoundTarget" />
+          <operandOccurrenceSpecification Id="c1554301-1d92-438f-b83c-3a2b273986ab" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="e652ee6b-0142-4b83-81a7-98297ff2c120" LastKnownName="this : Game" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="8b5041a6-e4c7-41cd-98e0-e6f3d546a07e" name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="846c855b-d19a-4b29-a1f4-a149a001609f" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="e652ee6b-0142-4b83-81a7-98297ff2c120" LastKnownName="this : Game" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="e652ee6b-0142-4b83-81a7-98297ff2c120" name="this : Game" isActor="false" lifelineDisplayName="this : Game" referencedInstance="(Assembly=$(af0a3a87-fe92-4f9c-a071-89fec997ceab.OutputPathUri) Namespace=Goudkoorts.Domain Type=Game ObjectInstance=&quot;Object instance 2&quot;)" referencedType="Goudkoorts‎.Domain‎.Game">
+            <referencesInternal>
+              <reference Id="fb81301b-e8db-40c2-9aff-9e7e4061268e" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=Goudkoorts.Domain)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(af0a3a87-fe92-4f9c-a071-89fec997ceab.OutputPathUri)&amp;quot; Namespace=Goudkoorts.Domain Type=Game)&quot;)" tag="DGQL" />
+              <reference Id="3d1532b9-d6dc-4d0f-bd44-ca10b2c20002" handle="(Assembly=&quot;$(af0a3a87-fe92-4f9c-a071-89fec997ceab.OutputPathUri)&quot; Namespace=Goudkoorts.Domain Type=Game)" tag="DGML" />
+            </referencesInternal>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="70b6574e-8032-4f85-bf6f-d192ac1ff469" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="8b5041a6-e4c7-41cd-98e0-e6f3d546a07e" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message Id="4bcbb941-241b-4425-850c-0985d68a11bb" name="CanMoveCartNormal" messageKind="Found" messageSort="AsynchCall" createSelfMessage="false">
+            <referencesInternal>
+              <reference Id="1ec51aeb-5345-4e0b-b0f7-898fac605dec" handle="+ Id.Equals(&quot;Microsoft.Solution.ClassView&quot;) /&#xD;&#xA;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Namespace=Goudkoorts.Domain)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(af0a3a87-fe92-4f9c-a071-89fec997ceab.OutputPathUri)&amp;quot; Namespace=Goudkoorts.Domain Type=Game)&quot;)/&#xD;&#xA;&quot;Microsoft.Contains&quot;/&#xD;&#xA;+ Id.EqualsIgnoreCase(&quot;(Assembly=&amp;quot;$(af0a3a87-fe92-4f9c-a071-89fec997ceab.OutputPathUri)&amp;quot; Namespace=Goudkoorts.Domain Type=Game Member=(Name=CanMoveCartNormal OverloadingParameters=[(Assembly=&amp;quot;$(af0a3a87-fe92-4f9c-a071-89fec997ceab.OutputPathUri)&amp;quot; Namespace=Goudkoorts.Domain Type=Track)]))&quot;)" tag="DGQL" />
+              <reference Id="a887edb6-7b5a-4624-977e-f34019420797" handle="(Assembly=&quot;$(af0a3a87-fe92-4f9c-a071-89fec997ceab.OutputPathUri)&quot; Namespace=Goudkoorts.Domain Type=Game Member=(Name=CanMoveCartNormal OverloadingParameters=[(Assembly=&quot;$(af0a3a87-fe92-4f9c-a071-89fec997ceab.OutputPathUri)&quot; Namespace=Goudkoorts.Domain Type=Track)]))" tag="DGML" />
+            </referencesInternal>
+            <sendEvent>
+              <lostFoundTargetMoniker Id="d3a7649b-fc84-4e41-b022-c8d4d69afa47" LastKnownName="LostFoundTarget" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="757ece26-49e3-4c49-ac06-23fb35315ef3" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="3e58dd20-cdf0-4927-a9a1-4b71e7a90292" name="Return" messageKind="Lost" messageSort="AsynchCall" createSelfMessage="false" signatureText="return true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="d8d02df0-8b26-4a5b-9838-44b4a3abe379" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <lostFoundTargetMoniker Id="a225c038-1060-4d0f-80ae-11e7f5119701" LastKnownName="LostFoundTarget" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="33e41afb-bc9e-429b-a8dd-60c552bd4e9d" name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="846c855b-d19a-4b29-a1f4-a149a001609f" name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
+</SequenceDesignerModel>

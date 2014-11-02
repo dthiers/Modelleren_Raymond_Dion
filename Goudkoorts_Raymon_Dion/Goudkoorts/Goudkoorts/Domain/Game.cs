@@ -269,7 +269,11 @@ namespace Goudkoorts.Domain {
         }
 
         private Boolean CanMoveCartNormal(Track p_current) {
-            return (!p_current.HasCart && p_current.Previous.HasCart) ;
+            if (!p_current.HasCart && p_current.Previous.HasCart)
+            {
+                return true;
+            }
+            return  false;
         }
 
         private Boolean CanMoveCartToSwitchIncomingTop(Track p_current) {
@@ -705,30 +709,33 @@ namespace Goudkoorts.Domain {
 
         private Boolean HasCollided(Track p_current) {
             Boolean collided = false;
-            if (p_current != null) {
-                if (p_current.Next != null) {
-                    if (p_current.HasCart) {
-                        if (isSwitchOutgoing(p_current)) {
-                            SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
-                            if (p_out.TopAvaiable && p_out.NextTop.HasCart && !p_out.NextTop.Cart.HasMoved) {
-                                GameOver = true;
-                                collided = true;
-                            }
-                            else if (p_out.BottomAvaiable && p_out.NextBottom.HasCart && !p_out.NextBottom.Cart.HasMoved) {
-                                GameOver = true;
-                                collided = true;
-                            }
-                        }
-                        else if (p_current.Next.GetType() == typeof(SwitchTrackIncoming)) {
-                            SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current.Next;
-                            // HIER MOET MISSCHIEN NOG WEL IETS KOMEN, MAAR IK KAN DE FOUT NIET REPRODUCEREN 
-                        }
-                        else if (p_current.Next.HasCart) {
-                            if (p_current.Next.HasCart && !p_current.Next.Cart.HasMoved) {
-                                GameOver = true;
-                                collided = true;
-                            }
-                        }
+            if (p_current != null && p_current.Next != null && p_current.HasCart)
+            {
+                if (isSwitchOutgoing(p_current))
+                {
+                    SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
+                    if (p_out.TopAvaiable && p_out.NextTop.HasCart && !p_out.NextTop.Cart.HasMoved)
+                    {
+                        GameOver = true;
+                        collided = true;
+                    }
+                    else if (p_out.BottomAvaiable && p_out.NextBottom.HasCart && !p_out.NextBottom.Cart.HasMoved)
+                    {
+                        GameOver = true;
+                        collided = true;
+                    }
+                }
+                else if (p_current.Next.GetType() == typeof(SwitchTrackIncoming))
+                {
+                    SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current.Next;
+                    // HIER MOET MISSCHIEN NOG WEL IETS KOMEN, MAAR IK KAN DE FOUT NIET REPRODUCEREN 
+                }
+                else if (p_current.Next.HasCart)
+                {
+                    if (p_current.Next.HasCart && !p_current.Next.Cart.HasMoved)
+                    {
+                        GameOver = true;
+                        collided = true;
                     }
                 }
             }
