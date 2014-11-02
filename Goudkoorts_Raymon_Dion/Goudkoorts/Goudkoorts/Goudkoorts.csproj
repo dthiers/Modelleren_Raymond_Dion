@@ -54,6 +54,7 @@
     <Compile Include="Domain\RegularTrack.cs" />
     <Compile Include="Domain\ScoreView.cs" />
     <Compile Include="Domain\Ship.cs" />
+    <Compile Include="Domain\SwitchTrack.cs" />
     <Compile Include="Domain\SwitchTrackIncoming.cs" />
     <Compile Include="Domain\SwitchTrackOutgoing.cs" />
     <Compile Include="Domain\Track.cs" />

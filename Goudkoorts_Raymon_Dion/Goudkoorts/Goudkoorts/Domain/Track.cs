@@ -17,6 +17,7 @@ namespace Goudkoorts.Domain {
             get { return Cart != null; }
             set { trackHasCart = value; }
         }
-        public Boolean Marker { get; set; }
+
+        public abstract void SetCartOnThisTrack(Track p_current, Track p_previous);
     }
 }

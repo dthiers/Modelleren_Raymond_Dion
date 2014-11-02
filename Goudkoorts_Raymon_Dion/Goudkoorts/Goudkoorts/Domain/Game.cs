@@ -272,22 +272,22 @@ namespace Goudkoorts.Domain {
         }
 
         private Boolean CanMoveCartToSwitchIncomingTop(Track p_current) {
-            SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
+            SwitchTrack p_in = (SwitchTrack)p_current;
             return (p_in.TopAvaiable && p_in.PreviousTop.HasCart && !p_current.HasCart) ;
         }
 
         private Boolean CanMoveCartToSwitchIncomingBottom(Track p_current) {
-            SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current;
+            SwitchTrack p_in = (SwitchTrack)p_current;
             return (p_in.BottomAvaiable && p_in.PreviousBottom.HasCart && !p_current.HasCart);
         }
 
         private Boolean CanMoveCartFromSwitchOutgoingToTop(Track p_current) {
-            SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
+            SwitchTrack p_out = (SwitchTrack)p_current;
             return (p_out.TopAvaiable && p_out.HasCart && !p_out.NextTop.HasCart);
         }
 
         private Boolean CanMoveCartFromSwitchOutgoingToBottom(Track p_current) {
-             SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
+             SwitchTrack p_out = (SwitchTrack)p_current;
              return (p_out.BottomAvaiable && p_out.HasCart && !p_out.NextBottom.HasCart);
         }
 
@@ -394,18 +394,7 @@ namespace Goudkoorts.Domain {
         /// <param name="p_current"></param>
         /// <param name="p_previous"></param>
         private void SetCartOnSpecificTrack(Track p_current, Track p_previous) {
-            if (p_previous.Cart != null)
-            {
-                if (!p_previous.Cart.HasMoved)
-                {
-                    p_current.Cart = p_previous.Cart;
-                    p_current.HasCart = true;
-                    p_current.Cart.HasMoved = true;
- 
-                    p_previous.HasCart = false;
-                    p_previous.Cart = null;
-                }
-            }
+            p_current.SetCartOnThisTrack(p_current, p_previous);
         }
 
         private Boolean IsReqular(Track p_track){
@@ -447,7 +436,7 @@ namespace Goudkoorts.Domain {
         }
 
         // als je van onder komt, kijk of de track verbonden is
-        public bool CanSwitchInFromBottom(SwitchTrackIncoming p_Track)     // moet private worden!
+        public bool CanSwitchInFromBottom(SwitchTrack p_Track)     // moet private worden!
         {
             if (p_Track.BottomAvaiable)
             {
@@ -456,7 +445,7 @@ namespace Goudkoorts.Domain {
             return false;
         }
 
-        public bool CanSwitchInFromTop(SwitchTrackIncoming p_Track)     // moet private worden!
+        public bool CanSwitchInFromTop(SwitchTrack p_Track)     // moet private worden!
         {
             if (p_Track.TopAvaiable)
             {
@@ -465,7 +454,7 @@ namespace Goudkoorts.Domain {
             return false;
         }
 
-        public bool CanSwitchOutFromBottom(SwitchTrackOutgoing p_Track)     // moet private worden!
+        public bool CanSwitchOutFromBottom(SwitchTrack p_Track)     // moet private worden!
         {
             if (p_Track.BottomAvaiable)
             {
@@ -474,7 +463,7 @@ namespace Goudkoorts.Domain {
             return false;
         }
 
-        public bool CanSwitchOutFromTop(SwitchTrackOutgoing p_Track)     // moet private worden!
+        public bool CanSwitchOutFromTop(SwitchTrack p_Track)     // moet private worden!
         {
             if (p_Track.TopAvaiable)
             {
@@ -483,34 +472,30 @@ namespace Goudkoorts.Domain {
             return false;
         }
 
-        private void SwitchIncoming(SwitchTrackIncoming p_Track)
+        private void SwitchIncoming(SwitchTrack p_Track)
         {
             if (!p_Track.HasCart) {
                 switch (p_Track.TopAvaiable) {
                     case true:
-                        p_Track.TopAvaiable = false;
-                        p_Track.BottomAvaiable = true;
+                        p_Track.SetBottomAvailable();
                         break;
 
                     case false:
-                        p_Track.TopAvaiable = true;
-                        p_Track.BottomAvaiable = false;
+                        p_Track.SetTopAvailable();
                         break;
                 }
             }
         }
 
-        private void SwitchOutgoing(SwitchTrackOutgoing p_Track)
+        private void SwitchOutgoing(SwitchTrack p_Track)
         {
             if (!p_Track.HasCart) {
                 switch (p_Track.TopAvaiable) {
                     case true:
-                        p_Track.TopAvaiable = false;
-                        p_Track.BottomAvaiable = true;
+                        p_Track.SetBottomAvailable();
                         break;
                     case false:
-                        p_Track.TopAvaiable = true;
-                        p_Track.BottomAvaiable = false;
+                        p_Track.SetTopAvailable();
                         break;
                 }
             }
