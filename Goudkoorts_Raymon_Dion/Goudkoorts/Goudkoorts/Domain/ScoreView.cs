@@ -7,6 +7,7 @@ namespace Goudkoorts.Domain {
    public class ScoreView {
        public string GameOver { get; set; }
        public string Paused { get; set; }
+       public int SecondsTillNextMove { get; set; }
        private Game mod_Game;
 
 
@@ -24,7 +25,7 @@ namespace Goudkoorts.Domain {
            string gameName = "GOUDKOORTS";
            string border = "";
            string whiteSpace = "";
-           string score = "Score: " + mod_Game.Score;
+           string score = "Score: " + mod_Game.Score + "   -   Seconds till next move: " + SecondsTillNextMove;
 
            string legenda1 = "";
            string legenda2 = "";
@@ -95,6 +96,7 @@ namespace Goudkoorts.Domain {
            Console.WriteLine(border);
            whiteSpace = "";
 
+           // Controls
            for (i = 0; i < (Console.WindowWidth - controls.Length) / 2; i++) {
                whiteSpace += " ";
            }
@@ -102,17 +104,17 @@ namespace Goudkoorts.Domain {
            Console.WriteLine(controls + "\n");
            whiteSpace = "";
 
-               // Score
-               for (i = 0; i < (Console.WindowWidth - score.Length) / 2; i++) {
-                   whiteSpace += " ";
-               }
-           Console.Write(whiteSpace + score + "\n");
+            // Score
+            for (i = 0; i < Console.WindowWidth / 4; i++) {
+               whiteSpace += " ";
+            }
+           score = whiteSpace + score;
+           Console.WriteLine(score);
            whiteSpace = "";
 
-
-           for (i = 0; i < (Console.WindowWidth - GameOver.Length) / 2; i++) {
-               whiteSpace += " ";
-           }
+               for (i = 0; i < (Console.WindowWidth - GameOver.Length) / 2; i++) {
+                   whiteSpace += " ";
+               }
            Console.WriteLine(whiteSpace + GameOver);
            whiteSpace = "";
 

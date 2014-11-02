@@ -176,6 +176,9 @@ namespace Goudkoorts.Domain {
                     spawnCountBoat = 180;
                 }
             }
+            if (moveCount % 2 == 0) {
+                scoreView.SecondsTillNextMove = moveCount / 2;
+            }
             applicationView.DrawAll();
         }
     }
