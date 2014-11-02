@@ -26,9 +26,6 @@ namespace Goudkoorts.Domain {
 
         public Boolean GameOver { get; set; }
         public int Score { get; set; }
-        // TESTEN HIERZO
-        //private BoatTrackView btv;
-        //private GameView gv;
         
         public Game() {
             startTrackA = new StartTrack();
@@ -51,6 +48,8 @@ namespace Goudkoorts.Domain {
             southHarbor.InitBoatTrack();
 
             InitTrack();
+
+            GameOver = false;
         }
 
 
@@ -292,160 +291,93 @@ namespace Goudkoorts.Domain {
              return (p_out.BottomAvaiable && p_out.HasCart && !p_out.NextBottom.HasCart);
         }
 
-        private void SetCartsToFalse()
-        {
-            Track current = lastTrackNorth;
-            // zet alles op false vanaf northharbor einde tot switchE
+        private void SetCartsToFalse() {
+            // StartA naar switchB
+            Track current = startTrackA.Next;
 
-            while (current.GetType() != typeof(SwitchTrackIncoming))
-            {
-                if (current.Cart != null)
-                {
+            while (current.GetType() != typeof(SwitchTrackOutgoing)) {
+                if (current.HasCart) {
                     current.Cart.HasMoved = false;
                 }
-                current = current.Previous;
-            }
-
-            current = switchE;
-
-            // false bij switch E
-            if (current.Cart != null)
-            {
-                current.Cart.HasMoved = false;
-            }
-
-            // false vanaf switchE.Top naar switchB
-
-            if (current.PreviousTop.Cart != null)
-            {
-                current.PreviousTop.Cart.HasMoved = false;
-            }
-
-            current = current.PreviousTop;
-
-            while (current.GetType() != typeof(SwitchTrackOutgoing))
-            {
-                if (current.Cart != null)
-                {
-                    current.Cart.HasMoved = false;
-                }
-                current = current.Previous;
-            }
-
-            current = switchE;
-            // E naar D false
-
-            if (current.PreviousBottom.Cart != null)
-            {
-                current.PreviousBottom.Cart.HasMoved = false;
-            }
-
-            current = switchD;
-            // cart in D false
-            if (current.Cart != null)
-            {
-                current.Cart.HasMoved = false;
-            }
-
-            current = current.Previous;
-
-            if (current.Cart != null)
-            {
-                current.Cart.HasMoved = false;
-            }
-
-            // zet C Cart op false
-            current = switchC;
-
-            if (current.Cart != null)
-            {
-                current.Cart.HasMoved = false;
-            }
-
-            // van C naar B
-            if (current.PreviousTop.Cart != null)
-            {
-                current.PreviousTop.Cart.HasMoved = false;
-            }
-
-            // zet B cart op false;
-            current = switchB;
-
-            if (current.Cart != null)
-            {
-                current.Cart.HasMoved = false;
-            }
-
-            current = current.Previous;
-
-            if (current.Cart != null)
-            {
-                current.Cart.HasMoved = false;
-            }
-
-            // einde south naar switchD
-            current = switchD.NextBottom;
-        //    current = lastTrackSouth;
-            while (current.Next != null)
-            {
-                if (current.Cart != null)
-                {
-                    current.Cart.HasMoved = false;
-                }
+                HasCollided(current);
                 current = current.Next;
             }
 
-            // van startC naar C
-            current = startTrackC.Next;
+            if (current.HasCart) {
+                current.Cart.HasMoved = false;
+            }
 
-            while (current.GetType() != typeof(SwitchTrackIncoming))
-            {
-                if (current.Cart != null)
-                {
+            // switchB naar einde top 
+            HasCollided(current);
+            current = current.NextTop;
+
+            while (current != null) {
+                if (current.HasCart) {
                     current.Cart.HasMoved = false;
                 }
+                HasCollided(current);
                 current = current.Next;
             }
 
-            // van startB naar A
-
+            // startB tot switchA
+            HasCollided(current);
             current = startTrackB.Next;
 
-            for (int i = 0; i < 3; i++)
-            {
-                if (current.Cart != null)
-                {
+            while (current.GetType() != typeof(SwitchTrackIncoming)) {
+                if (current.HasCart) {
                     current.Cart.HasMoved = false;
                 }
-                current = current.Next;
-            }
-            // startA naar A
-
-            current = startTrackA.Next;
-
-            for (int i = 0; i < 3; i++)
-            {
-                if (current.Cart != null)
-                {
-                    current.Cart.HasMoved = false;
-                }
+                HasCollided(current);
                 current = current.Next;
             }
 
-            // switchA cart = false;
+            // switchB nextbot --> switchD
+            current = switchB.NextBottom;
 
-            current = switchA;
+            while (current.GetType() != typeof(SwitchTrackOutgoing)) {
+                if (current.HasCart) {
+                    current.Cart.HasMoved = false;
+                }
 
-            if (current.Cart != null)
-            {
+                HasCollided(current);
+                current = current.Next;
+            }
+
+            if (current.HasCart) {
                 current.Cart.HasMoved = false;
             }
 
-            current = current.Next;
+            HasCollided(current);
+            current = current.NextTop;
 
-            if (current.Cart != null)
-            {
+            if (current.HasCart) {
                 current.Cart.HasMoved = false;
+            }
+
+            //startrackC --> switchC
+
+            HasCollided(current);
+            current = startTrackC.Next;
+
+            while (current.GetType() != typeof(SwitchTrackIncoming)) {
+                if (current.HasCart) {
+                    current.Cart.HasMoved = false;
+                }
+                HasCollided(current);
+                current = current.Next;
+            }
+
+            // switchD --> einde
+
+            current = switchD.NextBottom;
+
+            while (current != null) {
+                if (current.HasCart) {
+                    current.Cart.HasMoved = false;
+                }
+
+                HasCollided(current);
+                current = current.Next;
             }
         }
 
@@ -463,7 +395,6 @@ namespace Goudkoorts.Domain {
             {
                 if (!p_previous.Cart.HasMoved)
                 {
-                     CheckCollision(p_current, p_previous);
                     p_current.Cart = p_previous.Cart;
                     p_current.HasCart = true;
                     p_current.Cart.HasMoved = true;
@@ -474,16 +405,16 @@ namespace Goudkoorts.Domain {
             }
         }
 
-        private Boolean IsReqular(Track p_previous){
-            return p_previous.GetType() == typeof(RegularTrack);
+        private Boolean IsReqular(Track p_track){
+            return p_track.GetType() == typeof(RegularTrack);
         }
 
-        private Boolean IsSwitchIncoming(Track p_previous) {
-            return p_previous.GetType() == typeof(SwitchTrackIncoming);
+        private Boolean IsSwitchIncoming(Track p_track) {
+            return p_track.GetType() == typeof(SwitchTrackIncoming);
         }
 
-        private Boolean isSwitchOutgoing(Track p_previous) {
-            return p_previous.GetType() == typeof(SwitchTrackOutgoing);
+        private Boolean isSwitchOutgoing(Track p_track) {
+            return p_track.GetType() == typeof(SwitchTrackOutgoing);
         }
 
         // spawn random cart
@@ -784,16 +715,36 @@ namespace Goudkoorts.Domain {
             return new GameView(this, northQuay, southQuay);
         }
 
-        private void CheckCollision(Track p_current, Track p_previous) {
-            if (p_current.HasCart && p_previous.HasCart) {
-                Console.WriteLine("GAME OVER");
-                GameOver = true;
+        private Boolean HasCollided(Track p_current) {
+            Boolean collided = false;
+            if (p_current != null) {
+                if (p_current.Next != null) {
+                    if (p_current.HasCart) {
+                        if (isSwitchOutgoing(p_current)) {
+                            SwitchTrackOutgoing p_out = (SwitchTrackOutgoing)p_current;
+                            if (p_out.TopAvaiable && p_out.NextTop.HasCart && !p_out.NextTop.Cart.HasMoved) {
+                                GameOver = true;
+                                collided = true;
+                            }
+                            else if (p_out.BottomAvaiable && p_out.NextBottom.HasCart && !p_out.NextBottom.Cart.HasMoved) {
+                                GameOver = true;
+                                collided = true;
+                            }
+                        }
+                        else if (p_current.Next.GetType() == typeof(SwitchTrackIncoming)) {
+                            SwitchTrackIncoming p_in = (SwitchTrackIncoming)p_current.Next;
+                            // HIER MOET MISSCHIEN NOG WEL IETS KOMEN, MAAR IK KAN DE FOUT NIET REPRODUCEREN 
+                        }
+                        else if (p_current.Next.HasCart) {
+                            if (p_current.Next.HasCart && !p_current.Next.Cart.HasMoved) {
+                                GameOver = true;
+                                collided = true;
+                            }
+                        }
+                    }
+                }
             }
+            return collided;
         }
-
-        public Boolean IsGameOver() {
-            return GameOver;
-        }
-       
     }
 }

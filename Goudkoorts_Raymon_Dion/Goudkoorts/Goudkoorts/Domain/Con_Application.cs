@@ -16,15 +16,11 @@ namespace Goudkoorts.Domain {
 
         private Con_KeyHandler con_KeyHandler;
 
-        private Timer spawnBoat;
-        private Timer spawnCart;
         private Timer drawGame;
-        private Timer checkForCollision;
-        private Timer moveCarts;
-        private Timer moveBoats;
 
-        private int spawnCountBoat = 5;
-        private int spawnCountCart = 5;
+        private int spawnCountBoat = 60;
+        private int spawnCountCart = 16;
+        private int moveCount = 4;
 
         ConsoleKeyInfo input;
         char x;
@@ -43,63 +39,35 @@ namespace Goudkoorts.Domain {
             // Controllers
             con_KeyHandler = new Con_KeyHandler(mod_Game);
 
-            drawGame = new Timer(1000);
-            drawGame.Elapsed += DrawGame_Elapsed;
+            drawGame = new Timer(500);
             drawGame.Enabled = true;
 
-            checkForCollision = new Timer(500);
-            checkForCollision.Elapsed += CheckForCollision_Elapsed;
-            checkForCollision.Enabled = true;
-
-            while (drawGame.Enabled)
-            {
-                Run();
-            }
-            Console.Clear();
-            Console.WriteLine("Game Over!");
+            Run();
         }
 
         
         public void Run() {
-            if (mod_Game.IsGameOver()) {
-                drawGame.Stop();
-            }
-            else {
-                /*
-                spawnCart = new Timer(5000);
-                spawnCart.Elapsed += SpawnCart_Elapsed;
-                spawnCart.Enabled = true;
+            mod_Game.SpawnBoat();
+            mod_Game.SpawnRandomCart();
 
-                // Alle timers aanmaken
-                spawnBoat = new Timer(10000);
-                spawnBoat.Elapsed += BoatTimer_Elapsed;
-                spawnBoat.Enabled = true;
+            applicationView.DrawAll();
 
-                moveCarts = new Timer(2000);
-                moveCarts.Elapsed += MoveCarts_Elapsed;
-                moveCarts.Enabled = true;
+            drawGame.Elapsed += DrawGame_Elapsed;
 
-                moveBoats = new Timer(1000);
-                moveBoats.Elapsed += MoveBoats_Elapsed;
-                moveBoats.Enabled = true;
-
-                 * */
-                while (true) {
-                    input = Console.ReadKey();
-                    x = input.KeyChar;
-                    con_KeyHandler.InputHandler(x);
-                    applicationView.DrawAll();
-                }
-            }
-
-        }
-
-        private void CheckForCollision_Elapsed(object sender, ElapsedEventArgs e) {
-            if (mod_Game.GameOver) {
-                drawGame.Stop();
+            while (true) {
+                input = Console.ReadKey();
+                x = input.KeyChar;
+                con_KeyHandler.InputHandler(x);
+                applicationView.DrawAll();
             }
         }
+
         private void DrawGame_Elapsed(object sender, ElapsedEventArgs e) {
+            if (mod_Game.GameOver) {
+                drawGame.Enabled = false;
+                scoreView.GameOver = "Two carts collided. You are game over!";
+            }
+
             if (spawnCountBoat > 0) {
                 spawnCountBoat--;
             }
@@ -113,41 +81,17 @@ namespace Goudkoorts.Domain {
             }
             if (spawnCountCart == 0) {
                 mod_Game.SpawnRandomCart();
-                spawnCountCart = 5;
+                spawnCountCart = 16;
             }
-            mod_Game.MoveCarts();
-            mod_Game.MoveBoats();
+            if (moveCount > 0) {
+                moveCount--;
+            }
+            if (moveCount == 0) {
+                mod_Game.MoveCarts();
+                mod_Game.MoveBoats();
+                moveCount = 4;
+            }
             applicationView.DrawAll();
         }
-
-        private void SpawnBoat() {
-
-        }
-        /*
-        private void SpawnCart_Elapsed(object sender, ElapsedEventArgs e) {
-            mod_Game.SpawnRandomCart();
-        }
-        private void BoatTimer_Elapsed(object sender, ElapsedEventArgs e) {
-            mod_Game.SpawnBoat();
-        }
-        private void MoveCarts_Elapsed(object sender, ElapsedEventArgs e) {
-            mod_Game.MoveCarts();
-        }
-        private void MoveBoats_Elapsed(object sender, ElapsedEventArgs e) {
-            mod_Game.MoveBoats();
-        }
-
-        */
-        // Hier aan de game vragen of er na een move een collision is geweest
-        private void CollideOption() {
-            
-        }
-        // Aan game de score opvragen
-        private void Score() {
-
-        }
-
-        // HIER GAAN WE DENK IK EEN THREAD AANMAKEN?
-
     }
 }

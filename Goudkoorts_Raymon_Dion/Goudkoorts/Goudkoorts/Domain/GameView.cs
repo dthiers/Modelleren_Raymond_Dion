@@ -13,17 +13,6 @@ namespace Goudkoorts.Domain {
             this.game = p_game;
             this.northQuay = p_NorthQuay;
             this.southQuay = p_SouthQuay;
-
-            /*
-            DrawCartTrack();
-            game.GetStartB().SpawnCart();
-            DrawCartTrack();
-
-            for (int i = 0; i < 17; i++) {
-                game.MoveCarts();
-                DrawCartTrack();
-            }
-            */
         }
 
         public void DrawCartTrack() {
@@ -221,7 +210,7 @@ namespace Goudkoorts.Domain {
                 }
                 return "[  ]";
             }
-            return " __ ";
+            return "____";
         }
 
         private String DrawSwitchIncomingTop(SwitchTrackIncoming p_current) {

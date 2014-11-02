@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Goudkoorts.Domain {
     public abstract class Track {
+        private Boolean trackHasCart;
         public Cart Cart { get; set; }
         public Track Next { get; set; }
         public Track Previous { get; set; }
@@ -13,8 +14,9 @@ namespace Goudkoorts.Domain {
         public Track PreviousTop { get; set; }
         public Track PreviousBottom { get; set; }
         public Boolean HasCart {
-            get { return Cart != null;} 
-            set; }
+            get { return Cart != null; }
+            set { trackHasCart = value; }
+        }
         public Boolean Marker { get; set; }
     }
 }

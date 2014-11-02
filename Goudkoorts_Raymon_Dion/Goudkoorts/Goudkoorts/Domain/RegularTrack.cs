@@ -5,6 +5,5 @@ using System.Text;
 
 namespace Goudkoorts.Domain {
     public class RegularTrack : Track {
-
     }
 }
