@@ -603,7 +603,7 @@ namespace Goudkoorts.Domain {
             switchE.PreviousTop = current;
             current = switchE;
 
-            for (int e = 0; e < 2; e++) {
+            for (int e = 0; e < 3; e++) {
                 current.Next = new RegularTrack();
                 current.Next.Previous = current;
                 current = current.Next;
@@ -653,7 +653,7 @@ namespace Goudkoorts.Domain {
             switchD.NextBottom.Previous = switchD;
             current = switchD.NextBottom;
 
-            for (int g = 0; g < 3; g++) {
+            for (int g = 0; g < 4; g++) {
                 current.Next = new RegularTrack();
                 current.Next.Previous = current;
                 current = current.Next;

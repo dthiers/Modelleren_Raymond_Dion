@@ -7,7 +7,7 @@ namespace Goudkoorts.Domain {
     public class Harbor {
 
         // Variabelen om mee te spelen
-        private int amountOfTracksBeforeQuay = 13;
+        private int amountOfTracksBeforeQuay = 14;
         private int amountOfTracksAfterQuay = 2;
 
         private QuayTrack quayTrack;
